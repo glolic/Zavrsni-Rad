@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Spol } from 'src/app/modeli/spol-model';
+import { PageEvent, MatPaginator, MatSort } from '@angular/material';
+import { SpolService } from '../../services/spolovi-service';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-spolovi-grid',
@@ -7,19 +12,82 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SpoloviGridComponent implements OnInit {
 
-  constructor() { }
+  displayedColumns: string[] = ['id', 'naziv', 'actions'];
+  resultsLength;
+  data: Spol[];
+  pageEvent: PageEvent;
+  datasource: null;
+  pageIndex: number;
+  pageSize: number;
+  sortDirection: string;
+  sortActive: string;
+  isLoadingResults = false;
+  isRateLimitReached = false;
+
+  @ViewChild(MatPaginator, {static:false}) paginator: MatPaginator;
+  @ViewChild(MatSort, {static:false}) sort: MatSort;
+
+  constructor(private spolService: SpolService, private http: HttpClient, private router: Router) { }
 
   ngOnInit() {
+    this.pageSize = 10;
+    this.pageIndex = 0;
+
+    this.sortActive = "id";
+    this.sortDirection = "asc";
+
+    this.isLoadingResults = true;
+    this.spolService.getCount().subscribe(
+      (count) => this.resultsLength = count
+    );
+    this.spolService.getAll(this.pageIndex, this.pageSize, this.sortActive, this.sortDirection).subscribe(
+      (data) => {
+        this.data = data;
+        this.isLoadingResults = false;
+      }
+    )
   }
+  getServerData(event: PageEvent) {
+    this.isLoadingResults = true;
 
-  columnDefs = [
-    { headerName: 'ID', field: 'id', hide: true },
-    { headerName: 'Naziv', field: 'naziv' },
-  ];
+    this.spolService.getAll(this.paginator.pageIndex, this.paginator.pageSize, this.sort.active, this.sort.direction).subscribe(
+      (data) => {
+        this.data = data;
+        this.isLoadingResults = false;
 
-  rowData = [
-    { id: 1, naziv: 'Celica'},
-    { id: 2, naziv: 'Mondeo'},
-    { id: 3, naziv: 'Boxter'}
-  ];
+      }
+    );
+  }
+  sortData(event: any) {
+    this.paginator.pageIndex = 0;
+    
+    this.isLoadingResults = true;
+    this.spolService.getAll(this.paginator.pageIndex, this.paginator.pageSize, this.sort.active, this.sort.direction).subscribe(
+      (data) => {
+        this.data = data;
+        this.isLoadingResults = false;
+      }
+    );
+  }
+  deleteData(id: number) {
+    this.spolService.delete(id).subscribe(
+      response => {
+        if (response) {
+          
+          this.spolService.getAll(this.paginator.pageIndex, this.paginator.pageSize, this.sort.active, this.sort.direction).subscribe(
+            (data) => {
+              this.data = data;
+              this.isLoadingResults = false;
+            }
+          );
+        } else {
+
+        }
+      }
+    )
+  }
+  editUser(id: number) {
+    this.router.navigate(['korisnici-edit', id]);
+
+  }
 }
