@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Spol } from 'src/app/modeli/spol-model';
 import { PageEvent, MatPaginator, MatSort } from '@angular/material';
-import { SpolService } from '../../services/spolovi-service';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { SpoloviService } from '../../services/spolovi-service';
 
 @Component({
   selector: 'app-spolovi-grid',
@@ -14,20 +14,19 @@ export class SpoloviGridComponent implements OnInit {
 
   displayedColumns: string[] = ['id', 'naziv', 'actions'];
   resultsLength;
-  data: Spol[];
+  spolovi: Spol[];
   pageEvent: PageEvent;
   datasource: null;
   pageIndex: number;
   pageSize: number;
   sortDirection: string;
   sortActive: string;
-  isLoadingResults = false;
   isRateLimitReached = false;
 
-  @ViewChild(MatPaginator, {static:false}) paginator: MatPaginator;
-  @ViewChild(MatSort, {static:false}) sort: MatSort;
+  @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
+  @ViewChild(MatSort, { static: false }) sort: MatSort;
 
-  constructor(private spolService: SpolService, private http: HttpClient, private router: Router) { }
+  constructor(private spolService: SpoloviService, private http: HttpClient, private router: Router) { }
 
   ngOnInit() {
     this.pageSize = 10;
@@ -36,48 +35,44 @@ export class SpoloviGridComponent implements OnInit {
     this.sortActive = "id";
     this.sortDirection = "asc";
 
-    this.isLoadingResults = true;
     this.spolService.getCount().subscribe(
       (count) => this.resultsLength = count
     );
     this.spolService.getAll(this.pageIndex, this.pageSize, this.sortActive, this.sortDirection).subscribe(
       (data) => {
-        this.data = data;
-        this.isLoadingResults = false;
+        this.spolovi = data;
+        console.log(this.spolovi);
       }
     )
   }
+
   getServerData(event: PageEvent) {
-    this.isLoadingResults = true;
 
     this.spolService.getAll(this.paginator.pageIndex, this.paginator.pageSize, this.sort.active, this.sort.direction).subscribe(
       (data) => {
-        this.data = data;
-        this.isLoadingResults = false;
+        this.spolovi = data;
 
       }
     );
   }
+
   sortData(event: any) {
     this.paginator.pageIndex = 0;
-    
-    this.isLoadingResults = true;
     this.spolService.getAll(this.paginator.pageIndex, this.paginator.pageSize, this.sort.active, this.sort.direction).subscribe(
       (data) => {
-        this.data = data;
-        this.isLoadingResults = false;
+        this.spolovi = data;
       }
     );
   }
+
   deleteData(id: number) {
     this.spolService.delete(id).subscribe(
       response => {
         if (response) {
-          
+
           this.spolService.getAll(this.paginator.pageIndex, this.paginator.pageSize, this.sort.active, this.sort.direction).subscribe(
             (data) => {
-              this.data = data;
-              this.isLoadingResults = false;
+              this.spolovi = data;
             }
           );
         } else {
@@ -86,6 +81,7 @@ export class SpoloviGridComponent implements OnInit {
       }
     )
   }
+
   editUser(id: number) {
     this.router.navigate(['korisnici-edit', id]);
 

@@ -10,8 +10,8 @@ import { AgGridModule } from 'ag-grid-angular';
 import { MatMenuModule, MatSidenavModule, MatIconModule, MatToolbarModule,
   MatListModule, MatSelectModule, MatTableModule, MatPaginator,
    MatPaginatorModule, MatSortModule, MatInputModule, MatButtonModule, MatCardModule, MatProgressSpinnerModule, MatDatepickerModule, MatCheckboxModule, MatAutocompleteModule, DateAdapter, MAT_DATE_FORMATS, MatSnackBarModule} from '@angular/material';
-import { SpolService } from './features/services/spolovi-service';
 import { HttpClient, HttpHandler, HttpClientModule } from '@angular/common/http';
+import { SpoloviService } from './features/services/spolovi-service';
 
 
 @NgModule({
@@ -46,7 +46,7 @@ import { HttpClient, HttpHandler, HttpClientModule } from '@angular/common/http'
     MatSnackBarModule,
     HttpClientModule
   ],
-  providers: [SpolService, HttpClient],
+  providers: [SpoloviService, HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

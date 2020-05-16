@@ -3,35 +3,33 @@ import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { Spol } from 'src/app/modeli/spol-model';
 
-
-
-
 @Injectable()
-export class SpolService {
-    public API = 'http://localhost:44323/api';
+export class SpoloviService {
+    public API = 'https://localhost:44305/api';
     public USER_API = `${this.API}/spol`;
     constructor(private http: HttpClient) { }
 
-    getAll(pageIndex: number, pageSize: number,
+    public getAll(pageIndex: number, pageSize: number,
         sortActive: string, sortDirection: string): Observable<Array<Spol>> {
 
         let url = this.USER_API + "?pageSize=" + pageSize.toString() + "&pageIndex=" + pageIndex.toString()
             + "&sortColumn=" + sortActive + "&sortOrder=" + sortDirection;
 
-
-        return this.http.get<Array<Spol>>(url);
+        return this.http.get<Array<Spol>>(this.USER_API);
     }
+
     public getCount(): Observable<number> {
-        let url = this.USER_API + "/Count";
+        let url = this.USER_API + "/count";
         return this.http.get<number>(url);
     }
+
     public get(id: number): Observable<Spol> {
         let url = this.USER_API + '/' + id.toString();
 
         return this.http.get<Spol>(url);
     }
 
-    add(spol: Spol): Observable<boolean> {
+    public add(spol: Spol): Observable<boolean> {
         let headers = new HttpHeaders();
         headers = headers.append('Content-Type', 'application/json');
 

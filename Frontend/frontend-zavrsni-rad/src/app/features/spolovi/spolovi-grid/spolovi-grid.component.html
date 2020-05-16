@@ -1,33 +1,42 @@
-<button mat-stroked-button color="primary" class="addUser" routerLink="/smjestaj-add">+ Dodaj smještaj</button>
+<button mat-stroked-button color="primary" class="addSpol" routerLink="/spol-add">+ Dodaj spol</button>
 
 <div class="example-table-container mat-elevation-z8">
 
-  <table mat-table #sortAcc="matSort" [dataSource]="spolovi" class="example-table" matSort (matSortChange)="sortDataAcc($event)"
-    [matSortActive]="sortActiveAcc" [matSortDirection]="sortDirectionAcc">
+  <table mat-table [dataSource]="spolovi" matSort (matSortChange)="sortData($event)"
+    [matSortActive]="sortActive" [matSortDirection]="sortDirection">
 
     <ng-container matColumnDef="id">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>ID spola</th>
-      <td mat-cell *matCellDef="let acc">{{acc.id}}</td>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+      <td mat-cell *matCellDef="let gender">{{gender.id}}</td>
     </ng-container>
-    <ng-container matColumnDef="genderName">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Spol</th>
-      <td mat-cell *matCellDef="let acc">{{acc.naziv}}</td>
+
+    <ng-container matColumnDef="naziv">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Naziv</th>
+      <td mat-cell *matCellDef="let gender">{{gender.naziv}}</td>
     </ng-container>
+
     <ng-container matColumnDef="actions">
       <th mat-header-cell *matHeaderCellDef>Akcije</th>
-      <td mat-cell *matCellDef="let acc">
-        <button mat-raised-button matTooltip="Brisanje stavke" (click)="deleteAccData(acc.id)" color="warn">
+      <td mat-cell *matCellDef="let gender">
+        <button mat-raised-button matTooltip="Brisanje stavke" (click)="deleteData(gender.id)" color="warn">
           <mat-icon class="fas fa-broom">X</mat-icon>
         </button>
-        <button mat-raised-button matTooltip="Uredi smještaj" (click)="editAcc(acc.id)" color="primary">
+        <button mat-raised-button matTooltip="Uredi korisnika" (click)="editUser(user.id)" color="primary">
           <mat-icon class="fas fa-broom">E</mat-icon>
         </button>
       </td>
     </ng-container>
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumnsAcc"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumnsAcc;"></tr>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
+
+  <mat-paginator [length]="resultsLength" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 50]" [pageIndex]="pageIndex"
+    (page)="pageEvent = getServerData($event)"></mat-paginator>
 </div>
-<mat-paginator #pagAcc [length]="resultsLengthAcc" [pageSize]="pageSizeAcc" [pageSizeOptions]="[5, 10, 25, 50]"
-  [pageIndex]="pageIndexAcc" (page)="pageEventAcc = getAccServerData($event)"></mat-paginator>
+
+
+
+
+<!-- Copyright 2018 Google Inc. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->
