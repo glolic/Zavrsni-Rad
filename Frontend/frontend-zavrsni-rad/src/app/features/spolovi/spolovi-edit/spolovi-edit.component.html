@@ -1,11 +1,17 @@
+<div class="loading-shade" *ngIf="isLoadingResults">
+    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+</div>
+
 <div class="container mat-elevation-z8">
     <form class="form-container">
+
         <mat-form-field class="form-field-container">
             <input type="text" matInput [formControl]="name" placeholder="Naziv" required>
             <mat-error *ngIf="name.hasError('required')">
                 Ime je obavezno
             </mat-error>
         </mat-form-field>
-        <button type="submit" mat-raised-button color="primary" (click)="onSubmit()">Dodaj novog korisnika</button>
+
+        <button type="submit" mat-raised-button color="primary" (click)="onSubmit()">Ažuriraj korisnika</button>
     </form>
 </div>

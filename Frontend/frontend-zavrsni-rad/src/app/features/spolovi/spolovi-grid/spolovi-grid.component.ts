@@ -41,7 +41,6 @@ export class SpoloviGridComponent implements OnInit {
     this.spolService.getAll(this.pageIndex, this.pageSize, this.sortActive, this.sortDirection).subscribe(
       (data) => {
         this.spolovi = data;
-        console.log(this.spolovi);
       }
     )
   }
@@ -82,8 +81,7 @@ export class SpoloviGridComponent implements OnInit {
     )
   }
 
-  editUser(id: number) {
-    this.router.navigate(['korisnici-edit', id]);
-
+  editSpol(id: number) {
+    this.router.navigate(['spolovi-edit', id]);
   }
 }

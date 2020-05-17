@@ -15,7 +15,7 @@ export class SpoloviService {
         let url = this.USER_API + "?pageSize=" + pageSize.toString() + "&pageIndex=" + pageIndex.toString()
             + "&sortColumn=" + sortActive + "&sortOrder=" + sortDirection;
 
-        return this.http.get<Array<Spol>>(this.USER_API);
+        return this.http.get<Array<Spol>>(url);
     }
 
     public getCount(): Observable<number> {

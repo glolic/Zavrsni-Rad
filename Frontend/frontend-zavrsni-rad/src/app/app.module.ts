@@ -12,13 +12,16 @@ import { MatMenuModule, MatSidenavModule, MatIconModule, MatToolbarModule,
    MatPaginatorModule, MatSortModule, MatInputModule, MatButtonModule, MatCardModule, MatProgressSpinnerModule, MatDatepickerModule, MatCheckboxModule, MatAutocompleteModule, DateAdapter, MAT_DATE_FORMATS, MatSnackBarModule} from '@angular/material';
 import { HttpClient, HttpHandler, HttpClientModule } from '@angular/common/http';
 import { SpoloviService } from './features/services/spolovi-service';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { SpoloviEditComponent } from './features/spolovi/spolovi-edit/spolovi-edit.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     SpoloviGridComponent,
-    SpoloviAddComponent
+    SpoloviAddComponent,
+    SpoloviEditComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,9 @@ import { SpoloviService } from './features/services/spolovi-service';
     MatCheckboxModule,
     MatAutocompleteModule,
     MatSnackBarModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [SpoloviService, HttpClient],
   bootstrap: [AppComponent]

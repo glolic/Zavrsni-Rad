@@ -49,9 +49,7 @@ namespace ZavrsniRadASPNET.Models
             {
                 entity.ToTable("drzave");
 
-                entity.Property(e => e.Id)
-                    .HasColumnName("ID")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.Id).HasColumnName("ID");
 
                 entity.Property(e => e.NazivDrzave)
                     .HasColumnName("nazivDrzave")
@@ -66,9 +64,7 @@ namespace ZavrsniRadASPNET.Models
             {
                 entity.ToTable("igracMomcad");
 
-                entity.Property(e => e.Id)
-                    .HasColumnName("ID")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.Id).HasColumnName("ID");
 
                 entity.Property(e => e.IgracId).HasColumnName("igracID");
 
@@ -89,9 +85,7 @@ namespace ZavrsniRadASPNET.Models
             {
                 entity.ToTable("igraci");
 
-                entity.Property(e => e.Id)
-                    .HasColumnName("ID")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.Id).HasColumnName("ID");
 
                 entity.Property(e => e.BrojDresa).HasColumnName("brojDresa");
 
@@ -114,9 +108,7 @@ namespace ZavrsniRadASPNET.Models
             {
                 entity.ToTable("igraciPlacanja");
 
-                entity.Property(e => e.Id)
-                    .HasColumnName("ID")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.Id).HasColumnName("ID");
 
                 entity.Property(e => e.IgracId).HasColumnName("igracID");
 
@@ -137,9 +129,7 @@ namespace ZavrsniRadASPNET.Models
             {
                 entity.ToTable("klub");
 
-                entity.Property(e => e.Id)
-                    .HasColumnName("ID")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.Id).HasColumnName("ID");
 
                 entity.Property(e => e.GodinaOsnivanja)
                     .HasColumnName("godinaOsnivanja")
@@ -168,9 +158,7 @@ namespace ZavrsniRadASPNET.Models
             {
                 entity.ToTable("lokacija");
 
-                entity.Property(e => e.Id)
-                    .HasColumnName("ID")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.Id).HasColumnName("ID");
 
                 entity.Property(e => e.Adresa)
                     .HasColumnName("adresa")
@@ -188,9 +176,7 @@ namespace ZavrsniRadASPNET.Models
             {
                 entity.ToTable("momcadi");
 
-                entity.Property(e => e.Id)
-                    .HasColumnName("ID")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.Id).HasColumnName("ID");
 
                 entity.Property(e => e.KlubId).HasColumnName("klubID");
 
@@ -208,9 +194,7 @@ namespace ZavrsniRadASPNET.Models
             {
                 entity.ToTable("natjecanja");
 
-                entity.Property(e => e.Id)
-                    .HasColumnName("ID")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.Id).HasColumnName("ID");
 
                 entity.Property(e => e.DrzavaId).HasColumnName("drzavaID");
 
@@ -226,9 +210,7 @@ namespace ZavrsniRadASPNET.Models
 
             modelBuilder.Entity<Osoba>(entity =>
             {
-                entity.Property(e => e.Id)
-                    .HasColumnName("ID")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.Id).HasColumnName("ID");
 
                 entity.Property(e => e.DatumRodenja)
                     .HasColumnName("datumRodenja")
@@ -273,9 +255,7 @@ namespace ZavrsniRadASPNET.Models
             {
                 entity.ToTable("osoblje");
 
-                entity.Property(e => e.Id)
-                    .HasColumnName("ID")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.Id).HasColumnName("ID");
 
                 entity.Property(e => e.OsobaId).HasColumnName("osobaID");
 
@@ -289,9 +269,7 @@ namespace ZavrsniRadASPNET.Models
             {
                 entity.ToTable("osobljeMomcad");
 
-                entity.Property(e => e.Id)
-                    .HasColumnName("ID")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.Id).HasColumnName("ID");
 
                 entity.Property(e => e.MomcadId).HasColumnName("momcadID");
 
@@ -312,9 +290,7 @@ namespace ZavrsniRadASPNET.Models
             {
                 entity.ToTable("partneri");
 
-                entity.Property(e => e.Id)
-                    .HasColumnName("ID")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.Id).HasColumnName("ID");
 
                 entity.Property(e => e.LokacijaId).HasColumnName("lokacijaID");
 
@@ -332,9 +308,7 @@ namespace ZavrsniRadASPNET.Models
             {
                 entity.ToTable("placanjaPartneri");
 
-                entity.Property(e => e.Id)
-                    .HasColumnName("ID")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.Id).HasColumnName("ID");
 
                 entity.Property(e => e.Iznos).HasColumnName("iznos");
 
@@ -355,9 +329,7 @@ namespace ZavrsniRadASPNET.Models
             {
                 entity.ToTable("pozicija");
 
-                entity.Property(e => e.Id)
-                    .HasColumnName("ID")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.Id).HasColumnName("ID");
 
                 entity.Property(e => e.Naziv)
                     .HasColumnName("naziv")
@@ -368,9 +340,7 @@ namespace ZavrsniRadASPNET.Models
             {
                 entity.ToTable("spol");
 
-                entity.Property(e => e.Id)
-                    .HasColumnName("ID")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.Id).HasColumnName("ID");
 
                 entity.Property(e => e.Naziv)
                     .HasColumnName("naziv")
@@ -381,9 +351,7 @@ namespace ZavrsniRadASPNET.Models
             {
                 entity.ToTable("stadioni");
 
-                entity.Property(e => e.Id)
-                    .HasColumnName("ID")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.Id).HasColumnName("ID");
 
                 entity.Property(e => e.Kapacitet).HasColumnName("kapacitet");
 
@@ -398,9 +366,7 @@ namespace ZavrsniRadASPNET.Models
             {
                 entity.ToTable("uloga");
 
-                entity.Property(e => e.Id)
-                    .HasColumnName("ID")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.Id).HasColumnName("ID");
 
                 entity.Property(e => e.Naziv)
                     .HasColumnName("naziv")
@@ -411,9 +377,7 @@ namespace ZavrsniRadASPNET.Models
             {
                 entity.ToTable("utakmice");
 
-                entity.Property(e => e.Id)
-                    .HasColumnName("ID")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.Id).HasColumnName("ID");
 
                 entity.Property(e => e.BrojPosjetitelja).HasColumnName("brojPosjetitelja");
 

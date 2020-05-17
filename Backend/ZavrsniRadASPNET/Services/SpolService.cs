@@ -40,6 +40,8 @@ namespace ZavrsniRadASPNET.Services
 
             switch (sortColumn)
             {
+                case "id":
+                    return sortColumn.Equals("asc") ? _context.Spol.OrderBy(v => v.Id) : _context.Spol.OrderByDescending(v => v.Naziv);
                 case "naziv":
                     return sortOrder.Equals("asc") ? _context.Spol.OrderBy(v => v.Naziv) : _context.Spol.OrderByDescending(v => v.Naziv);
                 default:
@@ -69,10 +71,10 @@ namespace ZavrsniRadASPNET.Services
         {
             try
             {
-                var user = _context.Spol.SingleOrDefault(v => v.Id == ID);
-                if (user != null)
+                var spol = _context.Spol.SingleOrDefault(v => v.Id == ID);
+                if (spol != null)
                 {
-                    _context.Spol.Remove(user);
+                    _context.Spol.Remove(spol);
                     _context.SaveChanges();
                     return true;
                 }
@@ -90,9 +92,9 @@ namespace ZavrsniRadASPNET.Services
         public bool UpdateSpol(Spol spol)
         {
             int id;
-            var nUser = _context.Spol.SingleOrDefault(v => v.Id == spol.Id);
+            var spol1 = _context.Spol.SingleOrDefault(v => v.Id == spol.Id);
             id = spol.Id;
-            nUser.Naziv = spol.Naziv;
+            spol1.Naziv = spol.Naziv;
 
             try
             {
