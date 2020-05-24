@@ -14,6 +14,10 @@ import { HttpClient, HttpHandler, HttpClientModule } from '@angular/common/http'
 import { SpoloviService } from './features/services/spolovi-service';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { SpoloviEditComponent } from './features/spolovi/spolovi-edit/spolovi-edit.component';
+import { DrzaveService } from './features/services/drzave-service';
+import { DrzaveGridComponent } from './features/drzave/drzave-grid/drzave-grid.component';
+import { DrzaveAddComponent } from './features/drzave/drzave-add/drzave-add.component';
+import { DrzaveEditComponent } from './features/drzave/drzave-edit/drzave-edit.component';
 
 
 @NgModule({
@@ -21,7 +25,10 @@ import { SpoloviEditComponent } from './features/spolovi/spolovi-edit/spolovi-ed
     AppComponent,
     SpoloviGridComponent,
     SpoloviAddComponent,
-    SpoloviEditComponent
+    SpoloviEditComponent,
+    DrzaveGridComponent,
+    DrzaveAddComponent,
+    DrzaveEditComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +58,7 @@ import { SpoloviEditComponent } from './features/spolovi/spolovi-edit/spolovi-ed
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [SpoloviService, HttpClient],
+  providers: [SpoloviService, HttpClient, DrzaveService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

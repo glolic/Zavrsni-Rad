@@ -45,7 +45,7 @@ namespace ZavrsniRadASPNET.Services
                 case "naziv":
                     return sortOrder.Equals("asc") ? _context.Spol.OrderBy(v => v.Naziv) : _context.Spol.OrderByDescending(v => v.Naziv);
                 default:
-                    return _context.Spol.OrderBy(v => v.Id);
+                    return _context.Spol.OrderBy(v => v.Naziv);
             }
         }
 

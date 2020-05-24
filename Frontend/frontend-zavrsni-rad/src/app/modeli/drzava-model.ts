@@ -1,11 +1,11 @@
 export class Drzava {
     public id: number;
-    public naziv: string;
+    public nazivDrzave: string;
     public oznaka: string;
 
-    constructor(id?:number,naziv?:string, oznaka?:string){
+    constructor(id?:number,nazivDrzave?:string, oznaka?:string){
         this.id=id;
-        this.naziv=naziv;
+        this.nazivDrzave=nazivDrzave;
         this.oznaka=oznaka;
     }
 }
