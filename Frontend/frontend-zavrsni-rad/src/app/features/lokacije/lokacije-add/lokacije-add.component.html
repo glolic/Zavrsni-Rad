@@ -1,0 +1,23 @@
+<div class="container mat-elevation-z8">
+    <form class="form-container">
+        <mat-form-field class="form-field-container">
+            <input type="text" matInput [formControl]="address" placeholder="Naziv mjesta" required>
+            <mat-error *ngIf="address.hasError('required')">
+                Naziv mjesta je obavezan
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input type="text" placeholder="Odaberite državu" aria-label="Number" matInput [formControl]="country"
+                [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                <mat-option *ngFor="let drzava of drzave" [value]="drzava">
+                    {{drzava.nazivDrzave}}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+        <div class="row">
+            <button type="submit" mat-raised-button color="primary" class="submit" (click)="onSubmit()">Dodaj
+                državu</button>
+        </div>
+    </form>
+</div>

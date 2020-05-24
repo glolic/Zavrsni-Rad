@@ -6,6 +6,9 @@ import { SpoloviEditComponent } from './features/spolovi/spolovi-edit/spolovi-ed
 import { DrzaveGridComponent } from './features/drzave/drzave-grid/drzave-grid.component';
 import { DrzaveEditComponent } from './features/drzave/drzave-edit/drzave-edit.component';
 import { DrzaveAddComponent } from './features/drzave/drzave-add/drzave-add.component';
+import { LokacijeGridComponent } from './features/lokacije/lokacije-grid/lokacije-grid.component';
+import { LokacijeEditComponent } from './features/lokacije/lokacije-edit/lokacije-edit.component';
+import { LokacijeAddComponent } from './features/lokacije/lokacije-add/lokacije-add.component';
 
 
 const routes: Routes = [
@@ -15,6 +18,9 @@ const routes: Routes = [
   { path: 'drzave', component: DrzaveGridComponent },
   { path: 'drzave-edit/:id', component: DrzaveEditComponent },
   { path: 'drzave-add', component: DrzaveAddComponent },
+  { path: 'lokacije', component: LokacijeGridComponent },
+  { path: 'lokacije-edit/:id', component: LokacijeEditComponent },
+  { path: 'lokacije-add', component: LokacijeAddComponent },
 ];
 
 @NgModule({

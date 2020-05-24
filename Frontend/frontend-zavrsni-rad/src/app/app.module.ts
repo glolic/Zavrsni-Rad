@@ -18,6 +18,10 @@ import { DrzaveService } from './features/services/drzave-service';
 import { DrzaveGridComponent } from './features/drzave/drzave-grid/drzave-grid.component';
 import { DrzaveAddComponent } from './features/drzave/drzave-add/drzave-add.component';
 import { DrzaveEditComponent } from './features/drzave/drzave-edit/drzave-edit.component';
+import { LokacijeGridComponent } from './features/lokacije/lokacije-grid/lokacije-grid.component';
+import { LokacijeAddComponent } from './features/lokacije/lokacije-add/lokacije-add.component';
+import { LokacijeEditComponent } from './features/lokacije/lokacije-edit/lokacije-edit.component';
+import { LokacijeService } from './features/services/lokacije-service';
 
 
 @NgModule({
@@ -28,7 +32,10 @@ import { DrzaveEditComponent } from './features/drzave/drzave-edit/drzave-edit.c
     SpoloviEditComponent,
     DrzaveGridComponent,
     DrzaveAddComponent,
-    DrzaveEditComponent
+    DrzaveEditComponent,
+    LokacijeGridComponent,
+    LokacijeAddComponent,
+    LokacijeEditComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +65,7 @@ import { DrzaveEditComponent } from './features/drzave/drzave-edit/drzave-edit.c
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [SpoloviService, HttpClient, DrzaveService],
+  providers: [SpoloviService, HttpClient, DrzaveService, LokacijeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -10,11 +10,18 @@ export class DrzaveService {
   public USER_API = `${this.API}/drzave`;
   constructor(private http: HttpClient) { }
 
-  public getAll(pageIndex: number, pageSize: number,
-    sortActive: string, sortDirection: string): Observable<Array<Drzava>> {
+  public getAll(pageIndex?: number, pageSize?: number,
+    sortActive?: string, sortDirection?: string): Observable<Array<Drzava>> {
 
     let url = this.USER_API + "?pageSize=" + pageSize.toString() + "&pageIndex=" + pageIndex.toString()
       + "&sortColumn=" + sortActive + "&sortOrder=" + sortDirection;
+
+    return this.http.get<Array<Drzava>>(url);
+  }
+
+  public getAllCountries() : Observable<Array<Drzava>>{
+
+    let url = 'https://localhost:44305/api/drzave'
 
     return this.http.get<Array<Drzava>>(url);
   }

@@ -151,3 +151,7 @@ E:\Projekti\Završni\Backend\ZavrsniRadASPNET\obj\Debug\ZavrsniRadASPNET.csproj.
 E:\Projekti\Završni\Backend\ZavrsniRadASPNET\obj\Debug\ZavrsniRadASPNET.csproj.CopyComplete
 E:\Projekti\Završni\Backend\ZavrsniRadASPNET\obj\Debug\ZavrsniRadASPNET.dll
 E:\Projekti\Završni\Backend\ZavrsniRadASPNET\obj\Debug\ZavrsniRadASPNET.pdb
+E:\Projekti\Završni\Backend\ZavrsniRadASPNET\bin\Castle.Core.dll
+E:\Projekti\Završni\Backend\ZavrsniRadASPNET\bin\Microsoft.EntityFrameworkCore.Proxies.dll
+E:\Projekti\Završni\Backend\ZavrsniRadASPNET\bin\Castle.Core.xml
+E:\Projekti\Završni\Backend\ZavrsniRadASPNET\bin\Microsoft.EntityFrameworkCore.Proxies.xml
