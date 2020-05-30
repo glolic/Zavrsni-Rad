@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class DrzaveGridComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'nazivDrzave', 'oznaka', 'actions'];
+  displayedColumns: string[] = ['nazivDrzave', 'oznaka', 'actions'];
   resultsLength;
   drzave: Drzava[];
   pageEvent: PageEvent;

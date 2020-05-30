@@ -12,7 +12,7 @@ import { SpoloviService } from '../../services/spolovi-service';
 })
 export class SpoloviGridComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'naziv', 'actions'];
+  displayedColumns: string[] = ['naziv', 'actions'];
   resultsLength;
   spolovi: Spol[];
   pageEvent: PageEvent;

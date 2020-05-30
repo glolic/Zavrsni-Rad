@@ -30,13 +30,16 @@ export class LokacijeEditComponent implements OnInit {
       })
     })
   }
+  
   private setValues() {
     this.address.setValue(this.lokacija.adresa);
     this.country.setValue(this.lokacija.drzava);
   }
+
   gotoList() {
     this.router.navigate(['/lokacije']);
   }
+
   onSubmit() {
     if (this.address.valid) {
       let lokacija = new Lokacija(this.lokacija.id, this.address.value, this.country.value);

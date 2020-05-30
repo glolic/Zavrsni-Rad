@@ -9,6 +9,9 @@ import { DrzaveAddComponent } from './features/drzave/drzave-add/drzave-add.comp
 import { LokacijeGridComponent } from './features/lokacije/lokacije-grid/lokacije-grid.component';
 import { LokacijeEditComponent } from './features/lokacije/lokacije-edit/lokacije-edit.component';
 import { LokacijeAddComponent } from './features/lokacije/lokacije-add/lokacije-add.component';
+import { UlogeGridComponent } from './features/uloge/uloge-grid/uloge-grid.component';
+import { UlogeEditComponent } from './features/uloge/uloge-edit/uloge-edit.component';
+import { UlogeAddComponent } from './features/uloge/uloge-add/uloge-add.component';
 
 
 const routes: Routes = [
@@ -21,6 +24,9 @@ const routes: Routes = [
   { path: 'lokacije', component: LokacijeGridComponent },
   { path: 'lokacije-edit/:id', component: LokacijeEditComponent },
   { path: 'lokacije-add', component: LokacijeAddComponent },
+  { path: 'uloge', component: UlogeGridComponent },
+  { path: 'uloge-edit/:id', component: UlogeEditComponent },
+  { path: 'uloge-add', component: UlogeAddComponent },
 ];
 
 @NgModule({

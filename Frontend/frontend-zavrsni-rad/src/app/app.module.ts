@@ -22,6 +22,10 @@ import { LokacijeGridComponent } from './features/lokacije/lokacije-grid/lokacij
 import { LokacijeAddComponent } from './features/lokacije/lokacije-add/lokacije-add.component';
 import { LokacijeEditComponent } from './features/lokacije/lokacije-edit/lokacije-edit.component';
 import { LokacijeService } from './features/services/lokacije-service';
+import { UlogeGridComponent } from './features/uloge/uloge-grid/uloge-grid.component';
+import { UlogeAddComponent } from './features/uloge/uloge-add/uloge-add.component';
+import { UlogeEditComponent } from './features/uloge/uloge-edit/uloge-edit.component';
+import { UlogeService } from './features/services/uloge-service';
 
 
 @NgModule({
@@ -35,7 +39,10 @@ import { LokacijeService } from './features/services/lokacije-service';
     DrzaveEditComponent,
     LokacijeGridComponent,
     LokacijeAddComponent,
-    LokacijeEditComponent
+    LokacijeEditComponent,
+    UlogeGridComponent,
+    UlogeAddComponent,
+    UlogeEditComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +72,7 @@ import { LokacijeService } from './features/services/lokacije-service';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [SpoloviService, HttpClient, DrzaveService, LokacijeService],
+  providers: [SpoloviService, HttpClient, DrzaveService, LokacijeService, UlogeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

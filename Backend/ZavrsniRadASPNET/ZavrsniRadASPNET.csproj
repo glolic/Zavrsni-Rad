@@ -264,12 +264,14 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LokacijaController.cs" />
     <Compile Include="Controllers\SpolController.cs" />
+    <Compile Include="Controllers\UlogaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Mappers\DrzaveMapper.cs" />
     <Compile Include="Mappers\LokacijaMapper.cs" />
     <Compile Include="Mappers\SpolMapper.cs" />
+    <Compile Include="Mappers\UlogaMapper.cs" />
     <Compile Include="Models\Drzave.cs" />
     <Compile Include="Models\HokejKlubContext.cs" />
     <Compile Include="Models\Igraci.cs" />
@@ -293,12 +295,15 @@
     <Compile Include="ServiceInterfaces\IDrzaveService.cs" />
     <Compile Include="ServiceInterfaces\ILokacijaService.cs" />
     <Compile Include="ServiceInterfaces\ISpolService.cs" />
+    <Compile Include="ServiceInterfaces\IUlogeService.cs" />
     <Compile Include="Services\DrzaveService.cs" />
     <Compile Include="Services\LokacijaService.cs" />
     <Compile Include="Services\SpolService.cs" />
+    <Compile Include="Services\UlogeService.cs" />
     <Compile Include="Views\DrzaveView.cs" />
     <Compile Include="Views\LokacijaView.cs" />
     <Compile Include="Views\SpolView.cs" />
+    <Compile Include="Views\UlogaView.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
@@ -353,6 +358,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Uloga\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
