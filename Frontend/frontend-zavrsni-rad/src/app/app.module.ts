@@ -26,6 +26,10 @@ import { UlogeGridComponent } from './features/uloge/uloge-grid/uloge-grid.compo
 import { UlogeAddComponent } from './features/uloge/uloge-add/uloge-add.component';
 import { UlogeEditComponent } from './features/uloge/uloge-edit/uloge-edit.component';
 import { UlogeService } from './features/services/uloge-service';
+import { PartneriGridComponent } from './features/partneri/partneri-grid/partneri-grid.component';
+import { PartneriAddComponent } from './features/partneri/partneri-add/partneri-add.component';
+import { PartneriEditComponent } from './features/partneri/partneri-edit/partneri-edit.component';
+import { PartneriService } from './features/services/partner-service';
 
 
 @NgModule({
@@ -42,7 +46,10 @@ import { UlogeService } from './features/services/uloge-service';
     LokacijeEditComponent,
     UlogeGridComponent,
     UlogeAddComponent,
-    UlogeEditComponent
+    UlogeEditComponent,
+    PartneriGridComponent,
+    PartneriAddComponent,
+    PartneriEditComponent
   ],
   imports: [
     BrowserModule,
@@ -72,7 +79,7 @@ import { UlogeService } from './features/services/uloge-service';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [SpoloviService, HttpClient, DrzaveService, LokacijeService, UlogeService],
+  providers: [SpoloviService, HttpClient, DrzaveService, LokacijeService, UlogeService, PartneriService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

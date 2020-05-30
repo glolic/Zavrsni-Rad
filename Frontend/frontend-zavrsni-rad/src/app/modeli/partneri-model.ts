@@ -2,12 +2,12 @@ import { Lokacija } from './lokacija-model';
 
 export class Partner {
     public id: number;
-    public naziv: string;
+    public nazivPartnera: string;
     public lokacija: Lokacija;
 
-    constructor(id?:number, naziv?:string, lokacija?:Lokacija){
+    constructor(id?:number, nazivPartnera?:string, lokacija?:Lokacija){
         this.id=id;
-        this.naziv=naziv;
+        this.nazivPartnera=nazivPartnera;
         this.lokacija=lokacija;
     }
 }

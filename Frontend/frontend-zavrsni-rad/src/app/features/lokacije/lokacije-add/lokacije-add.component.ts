@@ -33,8 +33,6 @@ export class LokacijeAddComponent implements OnInit {
         this.drzave = data;
       }
     );
-
-    console.log(this.drzave);
   }
 
   gotoList() {

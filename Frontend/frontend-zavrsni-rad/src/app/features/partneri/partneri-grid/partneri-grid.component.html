@@ -1,0 +1,46 @@
+<button mat-stroked-button color="primary" class="addPartner" routerLink="/partneri-add">+ Dodaj partnera</button>
+
+<div class="example-table-container mat-elevation-z8">
+
+  <table mat-table [dataSource]="partneri" matSort (matSortChange)="sortData($event)"
+    [matSortActive]="sortActive" [matSortDirection]="sortDirection">
+
+    <ng-container matColumnDef="nazivPartnera">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Naziv partnera</th>
+      <td mat-cell *matCellDef="let partner">{{partner.nazivPartnera}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="lokacija">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Mjesto</th>
+      <td mat-cell *matCellDef="let partner">{{partner.lokacija.adresa}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>Akcije</th>
+      <td mat-cell *matCellDef="let partner">
+        <button mat-raised-button matTooltip="Brisanje stavke" (click)="deleteData(partner.id)" color="warn">
+          <span class="material-icons">
+            delete
+          </span>
+        </button>
+        <button mat-raised-button matTooltip="Uredi lokaciju" (click)="editPartner(partner.id)" color="primary">
+          <span class="material-icons">
+            edit
+          </span>
+        </button>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [length]="resultsLength" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 50]" [pageIndex]="pageIndex"
+    (page)="pageEvent = getServerData($event)"></mat-paginator>
+</div>
+
+
+
+
+<!-- Copyright 2018 Google Inc. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->

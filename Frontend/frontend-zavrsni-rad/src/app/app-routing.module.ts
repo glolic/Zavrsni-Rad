@@ -12,6 +12,9 @@ import { LokacijeAddComponent } from './features/lokacije/lokacije-add/lokacije-
 import { UlogeGridComponent } from './features/uloge/uloge-grid/uloge-grid.component';
 import { UlogeEditComponent } from './features/uloge/uloge-edit/uloge-edit.component';
 import { UlogeAddComponent } from './features/uloge/uloge-add/uloge-add.component';
+import { PartneriGridComponent } from './features/partneri/partneri-grid/partneri-grid.component';
+import { PartneriEditComponent } from './features/partneri/partneri-edit/partneri-edit.component';
+import { PartneriAddComponent } from './features/partneri/partneri-add/partneri-add.component';
 
 
 const routes: Routes = [
@@ -27,6 +30,9 @@ const routes: Routes = [
   { path: 'uloge', component: UlogeGridComponent },
   { path: 'uloge-edit/:id', component: UlogeEditComponent },
   { path: 'uloge-add', component: UlogeAddComponent },
+  { path: 'partneri', component: PartneriGridComponent },
+  { path: 'partneri-edit/:id', component: PartneriEditComponent },
+  { path: 'partneri-add', component: PartneriAddComponent },
 ];
 
 @NgModule({
