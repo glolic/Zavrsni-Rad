@@ -1,22 +1,22 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Partner } from 'src/app/modeli/partneri-model';
+import { PlacanjaPartnera } from 'src/app/modeli/placanje-partnera-model';
 
 @Injectable()
-export class PartneriService {
+export class PlacanjaPartneraService {
 
   public API = 'https://localhost:44305/api';
-  public USER_API = `${this.API}/partner`;
+  public USER_API = `${this.API}/placanjapartneri`;
   constructor(private http: HttpClient) { }
 
   public getAll(pageIndex: number, pageSize: number,
-      sortActive: string, sortDirection: string): Observable<Array<Partner>> {
+      sortActive: string, sortDirection: string): Observable<Array<PlacanjaPartnera>> {
 
       let url = this.USER_API + "?pageSize=" + pageSize.toString() + "&pageIndex=" + pageIndex.toString()
           + "&sortColumn=" + sortActive + "&sortOrder=" + sortDirection;
 
-      return this.http.get<Array<Partner>>(url);
+      return this.http.get<Array<PlacanjaPartnera>>(url);
   }
 
   public getCount(): Observable<number> {
@@ -24,22 +24,17 @@ export class PartneriService {
       return this.http.get<number>(url);
   }
 
-  public getAllPartners(): Observable<Array<Partner>> {
-    let url = 'https://localhost:44305/api/partner'
-    return this.http.get<Array<Partner>>(url);
-  }
-
-  public get(id: number): Observable<Partner> {
+  public get(id: number): Observable<PlacanjaPartnera> {
       let url = this.USER_API + '/' + id.toString();
 
-      return this.http.get<Partner>(url);
+      return this.http.get<PlacanjaPartnera>(url);
   }
 
-  public add(partner: Partner): Observable<boolean> {
+  public add(placanjaPartnera: PlacanjaPartnera): Observable<boolean> {
       let headers = new HttpHeaders();
       headers = headers.append('Content-Type', 'application/json');
 
-      return this.http.post<boolean>(this.USER_API, JSON.stringify(partner), { headers: headers });
+      return this.http.post<boolean>(this.USER_API, JSON.stringify(placanjaPartnera), { headers: headers });
 
   }
   public delete(id: number): Observable<boolean> {
@@ -48,11 +43,11 @@ export class PartneriService {
 
       return this.http.delete<boolean>(this.USER_API, { params: params });
   }
-  public update(partner: Partner): Observable<boolean> {
+  public update(placanjaPartnera: PlacanjaPartnera): Observable<boolean> {
       let headers = new HttpHeaders();
       headers = headers.append('Content-Type', 'application/json');
 
-      return this.http.put<boolean>(this.USER_API, JSON.stringify(partner), { headers: headers });
+      return this.http.put<boolean>(this.USER_API, JSON.stringify(placanjaPartnera), { headers: headers });
 
   }
 }

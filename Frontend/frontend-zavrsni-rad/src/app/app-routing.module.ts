@@ -15,6 +15,9 @@ import { UlogeAddComponent } from './features/uloge/uloge-add/uloge-add.componen
 import { PartneriGridComponent } from './features/partneri/partneri-grid/partneri-grid.component';
 import { PartneriEditComponent } from './features/partneri/partneri-edit/partneri-edit.component';
 import { PartneriAddComponent } from './features/partneri/partneri-add/partneri-add.component';
+import { PlacanjaPartneraGridComponent } from './features/placanja-partnera/placanja-partnera-grid/placanja-partnera-grid.component';
+import { PlacanjaPartneraEditComponent } from './features/placanja-partnera/placanja-partnera-edit/placanja-partnera-edit.component';
+import { PlacanjaPartneraAddComponent } from './features/placanja-partnera/placanja-partnera-add/placanja-partnera-add.component';
 
 
 const routes: Routes = [
@@ -33,6 +36,9 @@ const routes: Routes = [
   { path: 'partneri', component: PartneriGridComponent },
   { path: 'partneri-edit/:id', component: PartneriEditComponent },
   { path: 'partneri-add', component: PartneriAddComponent },
+  { path: 'placanja-partnera', component: PlacanjaPartneraGridComponent },
+  { path: 'placanja-partnera-edit/:id', component: PlacanjaPartneraEditComponent },
+  { path: 'placanja-partnera-add', component: PlacanjaPartneraAddComponent },
 ];
 
 @NgModule({

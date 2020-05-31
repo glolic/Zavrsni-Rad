@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Proxies;
 
 namespace ZavrsniRadASPNET.Models
 {
@@ -43,7 +38,8 @@ namespace ZavrsniRadASPNET.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=DESKTOP-BEVM3ON\\SQLEXPRESS;Database=HokejKlub;Trusted_Connection=True;MultipleActiveResultSets=true;");
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+                optionsBuilder.UseSqlServer("Server=DESKTOP-BEVM3ON\\SQLEXPRESS;Database=HokejKlub;Trusted_Connection=True;");
                 optionsBuilder.UseLazyLoadingProxies();
             }
         }
@@ -318,6 +314,8 @@ namespace ZavrsniRadASPNET.Models
                 entity.Property(e => e.Iznos).HasColumnName("iznos");
 
                 entity.Property(e => e.PartnerId).HasColumnName("partnerID");
+
+                entity.Property(e => e.Placeno).HasColumnName("placeno");
 
                 entity.Property(e => e.RazlogPlacanja)
                     .HasColumnName("razlogPlacanja")

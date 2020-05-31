@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 
-namespace ZavrsniRadASPNET.Models
+namespace ZavrsniRadASPNET.Views
 {
-    public partial class PlacanjaPartneri
+    public class PlacanjaPartneraView
     {
         public int Id { get; set; }
-        public int? PartnerId { get; set; }
         public string RazlogPlacanja { get; set; }
         public double Iznos { get; set; }
         public bool Placeno { get; set; }
-
-        public virtual Partneri Partner { get; set; }
+        public PartnerView Partner { get; set; }
     }
 }
