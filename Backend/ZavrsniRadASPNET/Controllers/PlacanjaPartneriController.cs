@@ -26,7 +26,7 @@ namespace ZavrsniRadASPNET.Controllers
 
         // GET: api/placanjaPartneri
         [HttpGet]
-        public IQueryable<PlacanjaPartneri> GetPlacanjaPartneris()
+        public IQueryable<PlacanjaPartneri> GetPlacanjaPartneri()
         {
             return db.PlacanjaPartneri;
         }
