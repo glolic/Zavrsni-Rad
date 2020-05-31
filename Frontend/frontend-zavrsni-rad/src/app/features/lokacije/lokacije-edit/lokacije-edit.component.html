@@ -10,7 +10,7 @@
             <input type="text" placeholder="Odaberite državu" aria-label="Number" matInput [formControl]="country"
                 [matAutocomplete]="auto">
             <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
-                <mat-option *ngFor="let drzava of drzave" [value]="drzava">
+                <mat-option *ngFor="let drzava of drzaveCollection" [value]="drzava">
                     {{drzava.nazivDrzave}}
                 </mat-option>
             </mat-autocomplete>

@@ -31,11 +31,8 @@ export class PartneriAddComponent implements OnInit {
     this.lokacijaService.getAllLocations().subscribe(
       (data) => {
         this.lokacija = data;
-    console.log(this.lokacija);
-
       }
     );
-    
   }
 
   gotoList() {

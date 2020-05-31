@@ -97,7 +97,7 @@ namespace ZavrsniRadASPNET.Services
             var lokacija1 = _context.Lokacija.SingleOrDefault(v => v.Id == lokacija.Id);
             id = lokacija.Id;
             lokacija1.Adresa = lokacija.Adresa;
-            lokacija.DrzavaId = lokacija.DrzavaId;
+            lokacija1.DrzavaId = lokacija.DrzavaId;
 
             try
             {

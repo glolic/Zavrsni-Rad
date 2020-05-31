@@ -4,6 +4,7 @@ import { FormControl } from '@angular/forms';
 import { Lokacija } from 'src/app/modeli/lokacija-model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Drzava } from 'src/app/modeli/drzava-model';
+import { DrzaveService } from '../../services/drzave-service';
 
 @Component({
   selector: 'app-lokacije-edit',
@@ -15,10 +16,14 @@ export class LokacijeEditComponent implements OnInit {
   address = new FormControl('');
   country = new FormControl('');
 
+  drzaveCollection: Drzava[];
+
   lokacija = new Lokacija();
+  
   constructor(private route: ActivatedRoute,
     private router: Router,
-    private lokacijaService: LokacijeService) { }
+    private lokacijaService: LokacijeService,
+    private drzaveService: DrzaveService) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -29,6 +34,14 @@ export class LokacijeEditComponent implements OnInit {
         this.setValues();
       })
     })
+  }
+  
+  ngAfterContentInit() {
+    this.drzaveService.getAllCountries().subscribe(
+      (data) => {
+        this.drzaveCollection = data;
+      }
+    );
   }
   
   private setValues() {

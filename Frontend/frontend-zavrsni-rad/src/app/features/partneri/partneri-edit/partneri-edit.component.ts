@@ -3,6 +3,8 @@ import { Partner } from 'src/app/modeli/partneri-model';
 import { FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PartneriService } from '../../services/partner-service';
+import { Lokacija } from 'src/app/modeli/lokacija-model';
+import { LokacijeService } from '../../services/lokacije-service';
 
 @Component({
   selector: 'app-partneri-edit',
@@ -14,11 +16,14 @@ export class PartneriEditComponent implements OnInit {
   partnerName = new FormControl('');
   location = new FormControl('');
 
+  lokacijaCollection: Lokacija[];
+
   partner = new Partner();
 
   constructor(private route: ActivatedRoute,
     private router: Router,
-    private partnerService: PartneriService) { }
+    private partnerService: PartneriService,
+    private lokacijaService: LokacijeService) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -29,6 +34,14 @@ export class PartneriEditComponent implements OnInit {
         this.setValues();
       })
     })
+  }
+
+  ngAfterContentInit() {
+    this.lokacijaService.getAllLocations().subscribe(
+      (data) => {
+        this.lokacijaCollection = data;
+      }
+    );
   }
   
   private setValues() {
@@ -53,8 +66,8 @@ export class PartneriEditComponent implements OnInit {
     }
   }
 
-  displayFn(partner: Partner): string {
-    return partner && partner.nazivPartnera ? partner.nazivPartnera : '';
+  displayFn(lokacija: Lokacija): string {
+    return lokacija && lokacija.adresa ? lokacija.adresa : '';
   }
 
 }
