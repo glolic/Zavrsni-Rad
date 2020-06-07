@@ -18,6 +18,9 @@ import { PartneriAddComponent } from './features/partneri/partneri-add/partneri-
 import { PlacanjaPartneraGridComponent } from './features/placanja-partnera/placanja-partnera-grid/placanja-partnera-grid.component';
 import { PlacanjaPartneraEditComponent } from './features/placanja-partnera/placanja-partnera-edit/placanja-partnera-edit.component';
 import { PlacanjaPartneraAddComponent } from './features/placanja-partnera/placanja-partnera-add/placanja-partnera-add.component';
+import { PozicijaGridComponent } from './features/pozicija/pozicija-grid/pozicija-grid.component';
+import { PozicijaEditComponent } from './features/pozicija/pozicija-edit/pozicija-edit.component';
+import { PozicijaAddComponent } from './features/pozicija/pozicija-add/pozicija-add.component';
 
 
 const routes: Routes = [
@@ -39,6 +42,9 @@ const routes: Routes = [
   { path: 'placanja-partnera', component: PlacanjaPartneraGridComponent },
   { path: 'placanja-partnera-edit/:id', component: PlacanjaPartneraEditComponent },
   { path: 'placanja-partnera-add', component: PlacanjaPartneraAddComponent },
+  { path: 'pozicije', component: PozicijaGridComponent },
+  { path: 'pozicije-edit/:id', component: PozicijaEditComponent },
+  { path: 'pozicije-add', component: PozicijaAddComponent },
 ];
 
 @NgModule({

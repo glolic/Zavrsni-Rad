@@ -1,0 +1,11 @@
+<div class="container mat-elevation-z8">
+    <form class="form-container">
+        <mat-form-field class="form-field-container">
+            <input type="text" matInput [formControl]="name" placeholder="Naziv" required>
+            <mat-error *ngIf="name.hasError('required')">
+                Ime je obavezno
+            </mat-error>
+        </mat-form-field>
+        <button type="submit" mat-raised-button color="primary" (click)="onSubmit()">Ažuriraj poziciju</button>
+    </form>
+</div>

@@ -35,6 +35,10 @@ import { PlacanjaPartneraAddComponent } from './features/placanja-partnera/placa
 import { PlacanjaPartneraEditComponent } from './features/placanja-partnera/placanja-partnera-edit/placanja-partnera-edit.component';
 import { PlacanjaPartneraService } from './features/services/placanja-partnera-service';
 import { BooleanPipePipe } from './features/assets/boolean-pipe.pipe';
+import { PozicijaGridComponent } from './features/pozicija/pozicija-grid/pozicija-grid.component';
+import { PozicijaEditComponent } from './features/pozicija/pozicija-edit/pozicija-edit.component';
+import { PozicijaAddComponent } from './features/pozicija/pozicija-add/pozicija-add.component';
+import { PozicijeService } from './features/services/pozicije-service';
 
 
 @NgModule({
@@ -58,7 +62,10 @@ import { BooleanPipePipe } from './features/assets/boolean-pipe.pipe';
     PlacanjaPartneraGridComponent,
     PlacanjaPartneraAddComponent,
     PlacanjaPartneraEditComponent,
-    BooleanPipePipe
+    BooleanPipePipe,
+    PozicijaGridComponent,
+    PozicijaEditComponent,
+    PozicijaAddComponent
   ],
   imports: [
     BrowserModule,
@@ -88,7 +95,14 @@ import { BooleanPipePipe } from './features/assets/boolean-pipe.pipe';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [SpoloviService, HttpClient, DrzaveService, LokacijeService, UlogeService, PartneriService, PlacanjaPartneraService],
+  providers: [SpoloviService, 
+    HttpClient, 
+    DrzaveService, 
+    LokacijeService, 
+    UlogeService, 
+    PartneriService, 
+    PlacanjaPartneraService,
+    PozicijeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
