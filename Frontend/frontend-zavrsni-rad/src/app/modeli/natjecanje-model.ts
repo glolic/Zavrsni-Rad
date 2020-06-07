@@ -2,12 +2,12 @@ import { Drzava } from './drzava-model';
 
 export class Natjecanje {
     public id: number;
-    public nazivNatjecanja: string;
+    public imeNatjecanja: string;
     public drzava: Drzava;
 
-    constructor(id?:number, nazivNatjecanja?:string, drzava?: Drzava){
+    constructor(id?:number, imeNatjecanja?:string, drzava?: Drzava){
         this.id=id;
-        this.nazivNatjecanja=nazivNatjecanja;
+        this.imeNatjecanja=imeNatjecanja;
         this.drzava=drzava;
     }
 }

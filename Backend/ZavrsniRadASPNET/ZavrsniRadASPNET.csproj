@@ -263,6 +263,7 @@
     <Compile Include="Controllers\DrzaveController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LokacijaController.cs" />
+    <Compile Include="Controllers\NatjecanjaController.cs" />
     <Compile Include="Controllers\PartnerController.cs" />
     <Compile Include="Controllers\PlacanjaPartneriController.cs" />
     <Compile Include="Controllers\PozicijeController.cs" />
@@ -274,6 +275,7 @@
     </Compile>
     <Compile Include="Mappers\DrzaveMapper.cs" />
     <Compile Include="Mappers\LokacijaMapper.cs" />
+    <Compile Include="Mappers\NatjecanjaMapper.cs" />
     <Compile Include="Mappers\PartnerMapper.cs" />
     <Compile Include="Mappers\PlacanjaPartneriMapper.cs" />
     <Compile Include="Mappers\PozicijaMapper.cs" />
@@ -302,6 +304,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceInterfaces\IDrzaveService.cs" />
     <Compile Include="ServiceInterfaces\ILokacijaService.cs" />
+    <Compile Include="ServiceInterfaces\INatjecanjaService.cs" />
     <Compile Include="ServiceInterfaces\IPartnerService.cs" />
     <Compile Include="ServiceInterfaces\IPlacanjaPartneraService.cs" />
     <Compile Include="ServiceInterfaces\IPozicijaService.cs" />
@@ -310,6 +313,7 @@
     <Compile Include="ServiceInterfaces\IUlogeService.cs" />
     <Compile Include="Services\DrzaveService.cs" />
     <Compile Include="Services\LokacijaService.cs" />
+    <Compile Include="Services\NatjecanjaService.cs" />
     <Compile Include="Services\PartnerService.cs" />
     <Compile Include="Services\PlacanjaPartneraService.cs" />
     <Compile Include="Services\PozicijaService.cs" />
@@ -318,6 +322,7 @@
     <Compile Include="Services\UlogeService.cs" />
     <Compile Include="Views\DrzaveView.cs" />
     <Compile Include="Views\LokacijaView.cs" />
+    <Compile Include="Views\NatjecanjaView.cs" />
     <Compile Include="Views\PartnerView.cs" />
     <Compile Include="Views\PlacanjaPartneraView.cs" />
     <Compile Include="Views\PozicijaView.cs" />

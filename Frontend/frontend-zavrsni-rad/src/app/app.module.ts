@@ -45,6 +45,10 @@ import { StadioniGridComponent } from './features/stadion/stadioni-grid/stadioni
 import { StadioniEditComponent } from './features/stadion/stadioni-edit/stadioni-edit.component';
 import { StadioniAddComponent } from './features/stadion/stadioni-add/stadioni-add.component';
 import { StadioniService } from './features/services/stadioni-service';
+import { NatjecanjaGridComponent } from './features/natjecanja/natjecanja-grid/natjecanja-grid.component';
+import { NatjecanjaEditComponent } from './features/natjecanja/natjecanja-edit/natjecanja-edit.component';
+import { NatjecanjaAddComponent } from './features/natjecanja/natjecanja-add/natjecanja-add.component';
+import { NatjecanjaService } from './features/services/natjecanja-service';
 
 
 @NgModule({
@@ -74,7 +78,10 @@ import { StadioniService } from './features/services/stadioni-service';
     PozicijaAddComponent,
     StadioniGridComponent,
     StadioniEditComponent,
-    StadioniAddComponent
+    StadioniAddComponent,
+    NatjecanjaGridComponent,
+    NatjecanjaEditComponent,
+    NatjecanjaAddComponent
   ],
   imports: [
     BrowserModule,
@@ -112,7 +119,8 @@ import { StadioniService } from './features/services/stadioni-service';
   PartneriService,
   PlacanjaPartneraService,
   PozicijeService,
-  StadioniService
+  StadioniService,
+  NatjecanjaService
   ],
   bootstrap: [AppComponent]
 })
