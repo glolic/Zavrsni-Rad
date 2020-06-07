@@ -7,9 +7,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SpoloviGridComponent } from './features/spolovi/spolovi-grid/spolovi-grid.component';
 import { SpoloviAddComponent } from './features/spolovi/spolovi-add/spolovi-add.component';
 import { AgGridModule } from 'ag-grid-angular';
-import { MatMenuModule, MatSidenavModule, MatIconModule, MatToolbarModule,
+import {
+  MatMenuModule, MatSidenavModule, MatIconModule, MatToolbarModule,
   MatListModule, MatSelectModule, MatTableModule, MatPaginator,
-   MatPaginatorModule, MatSortModule, MatInputModule, MatButtonModule, MatCardModule, MatProgressSpinnerModule, MatDatepickerModule, MatCheckboxModule, MatAutocompleteModule, DateAdapter, MAT_DATE_FORMATS, MatSnackBarModule} from '@angular/material';
+  MatPaginatorModule, MatSortModule, MatInputModule, MatButtonModule, MatCardModule, MatProgressSpinnerModule, MatDatepickerModule, MatCheckboxModule, MatAutocompleteModule, DateAdapter, MAT_DATE_FORMATS, MatSnackBarModule
+} from '@angular/material';
 import { HttpClient, HttpHandler, HttpClientModule } from '@angular/common/http';
 import { SpoloviService } from './features/services/spolovi-service';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -39,6 +41,10 @@ import { PozicijaGridComponent } from './features/pozicija/pozicija-grid/pozicij
 import { PozicijaEditComponent } from './features/pozicija/pozicija-edit/pozicija-edit.component';
 import { PozicijaAddComponent } from './features/pozicija/pozicija-add/pozicija-add.component';
 import { PozicijeService } from './features/services/pozicije-service';
+import { StadioniGridComponent } from './features/stadion/stadioni-grid/stadioni-grid.component';
+import { StadioniEditComponent } from './features/stadion/stadioni-edit/stadioni-edit.component';
+import { StadioniAddComponent } from './features/stadion/stadioni-add/stadioni-add.component';
+import { StadioniService } from './features/services/stadioni-service';
 
 
 @NgModule({
@@ -65,7 +71,10 @@ import { PozicijeService } from './features/services/pozicije-service';
     BooleanPipePipe,
     PozicijaGridComponent,
     PozicijaEditComponent,
-    PozicijaAddComponent
+    PozicijaAddComponent,
+    StadioniGridComponent,
+    StadioniEditComponent,
+    StadioniAddComponent
   ],
   imports: [
     BrowserModule,
@@ -95,14 +104,16 @@ import { PozicijeService } from './features/services/pozicije-service';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [SpoloviService, 
-    HttpClient, 
-    DrzaveService, 
-    LokacijeService, 
-    UlogeService, 
-    PartneriService, 
-    PlacanjaPartneraService,
-    PozicijeService],
+  providers: [SpoloviService,
+  HttpClient,
+  DrzaveService,
+  LokacijeService,
+  UlogeService,
+  PartneriService,
+  PlacanjaPartneraService,
+  PozicijeService,
+  StadioniService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

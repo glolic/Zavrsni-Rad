@@ -1,0 +1,31 @@
+<div class="container mat-elevation-z8">
+    <form class="form-container">
+        <mat-form-field class="form-field-container">
+            <input type="text" matInput [formControl]="name" placeholder="Naziv stadiona" required>
+            <mat-error *ngIf="name.hasError('required')">
+                Naziv stadiona je obavezan
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="form-field-container">
+            <input type="text" matInput [formControl]="capacity" placeholder="Kapacitet stadiona" required>
+            <mat-error *ngIf="capacity.hasError('required')">
+                Kapacitet stadiona je obavezan
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <input type="text" placeholder="Odaberite lokaciju" aria-label="Number" matInput [formControl]="location"
+                [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                <mat-option *ngFor="let lokacija of lokacijaCollection" [value]="lokacija">
+                    {{lokacija.adresa}}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+
+        <div class="row">
+            <button type="submit" mat-raised-button color="primary" class="submit" (click)="onSubmit()">Ažuriraj stadion</button>
+        </div>
+    </form>
+</div>

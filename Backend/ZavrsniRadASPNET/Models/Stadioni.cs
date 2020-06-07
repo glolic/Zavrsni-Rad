@@ -13,8 +13,9 @@ namespace ZavrsniRadASPNET.Models
         public int Id { get; set; }
         public string Naziv { get; set; }
         public int? LokacijaId { get; set; }
-        public int? Kapacitet { get; set; }
+        public int Kapacitet { get; set; }
 
+        public virtual Lokacija Lokacija { get; set; }
         public virtual ICollection<Klub> Klub { get; set; }
     }
 }

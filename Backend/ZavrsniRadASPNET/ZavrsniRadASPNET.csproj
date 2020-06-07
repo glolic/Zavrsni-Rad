@@ -267,6 +267,7 @@
     <Compile Include="Controllers\PlacanjaPartneriController.cs" />
     <Compile Include="Controllers\PozicijeController.cs" />
     <Compile Include="Controllers\SpolController.cs" />
+    <Compile Include="Controllers\StadionController.cs" />
     <Compile Include="Controllers\UlogaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -277,6 +278,7 @@
     <Compile Include="Mappers\PlacanjaPartneriMapper.cs" />
     <Compile Include="Mappers\PozicijaMapper.cs" />
     <Compile Include="Mappers\SpolMapper.cs" />
+    <Compile Include="Mappers\StadionMapper.cs" />
     <Compile Include="Mappers\UlogaMapper.cs" />
     <Compile Include="Models\Drzave.cs" />
     <Compile Include="Models\HokejKlubContext.cs" />
@@ -304,6 +306,7 @@
     <Compile Include="ServiceInterfaces\IPlacanjaPartneraService.cs" />
     <Compile Include="ServiceInterfaces\IPozicijaService.cs" />
     <Compile Include="ServiceInterfaces\ISpolService.cs" />
+    <Compile Include="ServiceInterfaces\IStadionService.cs" />
     <Compile Include="ServiceInterfaces\IUlogeService.cs" />
     <Compile Include="Services\DrzaveService.cs" />
     <Compile Include="Services\LokacijaService.cs" />
@@ -311,6 +314,7 @@
     <Compile Include="Services\PlacanjaPartneraService.cs" />
     <Compile Include="Services\PozicijaService.cs" />
     <Compile Include="Services\SpolService.cs" />
+    <Compile Include="Services\StadionService.cs" />
     <Compile Include="Services\UlogeService.cs" />
     <Compile Include="Views\DrzaveView.cs" />
     <Compile Include="Views\LokacijaView.cs" />
@@ -318,6 +322,7 @@
     <Compile Include="Views\PlacanjaPartneraView.cs" />
     <Compile Include="Views\PozicijaView.cs" />
     <Compile Include="Views\SpolView.cs" />
+    <Compile Include="Views\StadionView.cs" />
     <Compile Include="Views\UlogaView.cs" />
   </ItemGroup>
   <ItemGroup>
