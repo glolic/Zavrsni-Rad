@@ -58,6 +58,10 @@ import { MomcadService } from './features/services/momcad-service';
 import { MomcadiGridComponent } from './features/momcadi/momcadi-grid/momcadi-grid.component';
 import { MomcadiAddComponent } from './features/momcadi/momcadi-add/momcadi-add.component';
 import { MomcadiEditComponent } from './features/momcadi/momcadi-edit/momcadi-edit.component';
+import { OsobeService } from './features/services/osobe-service';
+import { OsobeGridComponent } from './features/osobe/osobe-grid/osobe-grid.component';
+import { OsobeAddComponent } from './features/osobe/osobe-add/osobe-add.component';
+import { OsobeEditComponent } from './features/osobe/osobe-edit/osobe-edit.component';
 
 
 @NgModule({
@@ -96,7 +100,10 @@ import { MomcadiEditComponent } from './features/momcadi/momcadi-edit/momcadi-ed
     KluboviEditComponent,
     MomcadiGridComponent,
     MomcadiAddComponent,
-    MomcadiEditComponent
+    MomcadiEditComponent,
+    OsobeGridComponent,
+    OsobeAddComponent,
+    OsobeEditComponent
   ],
   imports: [
     BrowserModule,
@@ -138,7 +145,8 @@ import { MomcadiEditComponent } from './features/momcadi/momcadi-edit/momcadi-ed
   StadioniService,
   NatjecanjaService,
   KluboviService,
-  MomcadService
+  MomcadService,
+  OsobeService
   ],
   bootstrap: [AppComponent]
 })

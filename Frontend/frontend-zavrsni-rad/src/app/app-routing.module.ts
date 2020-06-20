@@ -33,6 +33,9 @@ import { KluboviAddComponent } from './features/klub/klubovi-add/klubovi-add.com
 import { MomcadiGridComponent } from './features/momcadi/momcadi-grid/momcadi-grid.component';
 import { MomcadiEditComponent } from './features/momcadi/momcadi-edit/momcadi-edit.component';
 import { MomcadiAddComponent } from './features/momcadi/momcadi-add/momcadi-add.component';
+import { OsobeGridComponent } from './features/osobe/osobe-grid/osobe-grid.component';
+import { OsobeEditComponent } from './features/osobe/osobe-edit/osobe-edit.component';
+import { OsobeAddComponent } from './features/osobe/osobe-add/osobe-add.component';
 
 
 const routes: Routes = [
@@ -69,6 +72,9 @@ const routes: Routes = [
   { path: 'momcadi', component: MomcadiGridComponent },
   { path: 'momcadi-edit/:id', component: MomcadiEditComponent },
   { path: 'momcadi-add', component: MomcadiAddComponent },
+  { path: 'osobe', component: OsobeGridComponent },
+  { path: 'osobe-edit/:id', component: OsobeEditComponent },
+  { path: 'osobe-add', component: OsobeAddComponent },
 ];
 
 @NgModule({
