@@ -97,6 +97,7 @@ namespace ZavrsniRadASPNET.Services
             var momcad1 = _context.Momcadi.SingleOrDefault(v => v.Id == momcad.Id);
             id = momcad.Id;
             momcad1.Naziv = momcad.Naziv;
+            momcad1.KlubId = momcad.KlubId;
 
             try
             {

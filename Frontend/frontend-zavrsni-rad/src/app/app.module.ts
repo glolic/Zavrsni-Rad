@@ -54,6 +54,10 @@ import { KluboviAddComponent } from './features/klub/klubovi-add/klubovi-add.com
 import { KluboviEditComponent } from './features/klub/klubovi-edit/klubovi-edit.component';
 import { KluboviService } from './features/services/klubovi-service';
 import { SlicePipe, CommonModule } from '@angular/common';
+import { MomcadService } from './features/services/momcad-service';
+import { MomcadiGridComponent } from './features/momcadi/momcadi-grid/momcadi-grid.component';
+import { MomcadiAddComponent } from './features/momcadi/momcadi-add/momcadi-add.component';
+import { MomcadiEditComponent } from './features/momcadi/momcadi-edit/momcadi-edit.component';
 
 
 @NgModule({
@@ -89,7 +93,10 @@ import { SlicePipe, CommonModule } from '@angular/common';
     NatjecanjaAddComponent,
     KluboviGridComponent,
     KluboviAddComponent,
-    KluboviEditComponent
+    KluboviEditComponent,
+    MomcadiGridComponent,
+    MomcadiAddComponent,
+    MomcadiEditComponent
   ],
   imports: [
     BrowserModule,
@@ -130,7 +137,8 @@ import { SlicePipe, CommonModule } from '@angular/common';
   PozicijeService,
   StadioniService,
   NatjecanjaService,
-  KluboviService
+  KluboviService,
+  MomcadService
   ],
   bootstrap: [AppComponent]
 })

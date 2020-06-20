@@ -30,6 +30,9 @@ import { NatjecanjaAddComponent } from './features/natjecanja/natjecanja-add/nat
 import { KluboviGridComponent } from './features/klub/klubovi-grid/klubovi-grid.component';
 import { KluboviEditComponent } from './features/klub/klubovi-edit/klubovi-edit.component';
 import { KluboviAddComponent } from './features/klub/klubovi-add/klubovi-add.component';
+import { MomcadiGridComponent } from './features/momcadi/momcadi-grid/momcadi-grid.component';
+import { MomcadiEditComponent } from './features/momcadi/momcadi-edit/momcadi-edit.component';
+import { MomcadiAddComponent } from './features/momcadi/momcadi-add/momcadi-add.component';
 
 
 const routes: Routes = [
@@ -63,6 +66,9 @@ const routes: Routes = [
   { path: 'klubovi', component: KluboviGridComponent },
   { path: 'klubovi-edit/:id', component: KluboviEditComponent },
   { path: 'klubovi-add', component: KluboviAddComponent },
+  { path: 'momcadi', component: MomcadiGridComponent },
+  { path: 'momcadi-edit/:id', component: MomcadiEditComponent },
+  { path: 'momcadi-add', component: MomcadiAddComponent },
 ];
 
 @NgModule({

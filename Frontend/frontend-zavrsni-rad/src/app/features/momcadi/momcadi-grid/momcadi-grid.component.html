@@ -1,0 +1,46 @@
+<button mat-stroked-button color="primary" class="addMomcad" routerLink="/momcadi-add">+ Dodaj momcad</button>
+
+<div class="example-table-container mat-elevation-z8">
+
+  <table mat-table [dataSource]="momcadi" matSort (matSortChange)="sortData($event)"
+    [matSortActive]="sortActive" [matSortDirection]="sortDirection">
+
+    <ng-container matColumnDef="naziv">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Naziv</th>
+      <td mat-cell *matCellDef="let momcad">{{momcad.naziv}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="klub">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Klub</th>
+      <td mat-cell *matCellDef="let momcad">{{momcad.klub.naziv}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>Akcije</th>
+      <td mat-cell *matCellDef="let momcad">
+        <button mat-raised-button matTooltip="Brisanje stavke" (click)="deleteData(momcad.id)" color="warn">
+          <span class="material-icons">
+            delete
+          </span>
+        </button>
+        <button mat-raised-button matTooltip="Uredi lokaciju" (click)="editMomcad(momcad.id)" color="primary">
+          <span class="material-icons">
+            edit
+          </span>
+        </button>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [length]="resultsLength" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 50]" [pageIndex]="pageIndex"
+    (page)="pageEvent = getServerData($event)"></mat-paginator>
+</div>
+
+
+
+
+<!-- Copyright 2018 Google Inc. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->
