@@ -27,6 +27,9 @@ import { StadioniAddComponent } from './features/stadion/stadioni-add/stadioni-a
 import { NatjecanjaGridComponent } from './features/natjecanja/natjecanja-grid/natjecanja-grid.component';
 import { NatjecanjaEditComponent } from './features/natjecanja/natjecanja-edit/natjecanja-edit.component';
 import { NatjecanjaAddComponent } from './features/natjecanja/natjecanja-add/natjecanja-add.component';
+import { KluboviGridComponent } from './features/klub/klubovi-grid/klubovi-grid.component';
+import { KluboviEditComponent } from './features/klub/klubovi-edit/klubovi-edit.component';
+import { KluboviAddComponent } from './features/klub/klubovi-add/klubovi-add.component';
 
 
 const routes: Routes = [
@@ -57,6 +60,9 @@ const routes: Routes = [
   { path: 'natjecanja', component: NatjecanjaGridComponent },
   { path: 'natjecanja-edit/:id', component: NatjecanjaEditComponent },
   { path: 'natjecanja-add', component: NatjecanjaAddComponent },
+  { path: 'klubovi', component: KluboviGridComponent },
+  { path: 'klubovi-edit/:id', component: KluboviEditComponent },
+  { path: 'klubovi-add', component: KluboviAddComponent },
 ];
 
 @NgModule({

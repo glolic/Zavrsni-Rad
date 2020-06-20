@@ -1,0 +1,40 @@
+<div class="container mat-elevation-z8">
+    <form class="form-container">
+        <mat-form-field class="form-field-container">
+            <input type="text" matInput [formControl]="name" placeholder="Naziv kluba" required>
+            <mat-error *ngIf="name.hasError('required')">
+                Naziv kluba je obavezan
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="form-field-container">
+            <input type="text" matInput [formControl]="establishmentYear" placeholder="Godina osnivanja kluba" required>
+            <mat-error *ngIf="establishmentYear.hasError('required')">
+                Godina osnivanja kluba
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <input type="text" placeholder="Odaberite mjesto" aria-label="Number" matInput [formControl]="clubResidence"
+                [matAutocomplete]="auto1">
+            <mat-autocomplete #auto1="matAutocomplete" [displayWith]="displayFn1">
+                <mat-option *ngFor="let lokacija of lokacijaCollection" [value]="lokacija">
+                    {{lokacija.adresa}}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <input type="text" placeholder="Odaberite stadion" aria-label="Number" matInput [formControl]="stadium"
+                [matAutocomplete]="auto2">
+            <mat-autocomplete #auto2="matAutocomplete" [displayWith]="displayFn2">
+                <mat-option *ngFor="let stadion of stadiumCollection" [value]="stadion">
+                    {{stadion.naziv}}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+        <div class="row">
+            <button type="submit" mat-raised-button color="primary" class="submit" (click)="onSubmit()">Dodaj klub</button>
+        </div>
+    </form>
+</div>

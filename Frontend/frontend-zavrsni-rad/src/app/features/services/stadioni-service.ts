@@ -19,6 +19,13 @@ export class StadioniService {
         return this.http.get<Array<Stadion>>(url);
     }
 
+    public getAllStadiums() : Observable<Array<Stadion>>{
+
+      let url = 'https://localhost:44305/api/stadion'
+  
+      return this.http.get<Array<Stadion>>(url);
+    }
+
     public getCount(): Observable<number> {
         let url = this.USER_API + "/count";
         return this.http.get<number>(url);

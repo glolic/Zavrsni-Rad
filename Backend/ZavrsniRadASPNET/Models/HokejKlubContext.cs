@@ -132,9 +132,7 @@ namespace ZavrsniRadASPNET.Models
 
                 entity.Property(e => e.Id).HasColumnName("ID");
 
-                entity.Property(e => e.GodinaOsnivanja)
-                    .HasColumnName("godinaOsnivanja")
-                    .HasColumnType("date");
+                entity.Property(e => e.GodinaOsnivanja).HasColumnName("godinaOsnivanja");
 
                 entity.Property(e => e.Naziv)
                     .HasColumnName("naziv")
@@ -143,16 +141,6 @@ namespace ZavrsniRadASPNET.Models
                 entity.Property(e => e.SjedisteKlubaId).HasColumnName("sjedisteKlubaID");
 
                 entity.Property(e => e.StadionId).HasColumnName("stadionID");
-
-                entity.HasOne(d => d.SjedisteKluba)
-                    .WithMany(p => p.Klub)
-                    .HasForeignKey(d => d.SjedisteKlubaId)
-                    .HasConstraintName("FK_klub_lokacija");
-
-                entity.HasOne(d => d.Stadion)
-                    .WithMany(p => p.Klub)
-                    .HasForeignKey(d => d.StadionId)
-                    .HasConstraintName("FK_klub_stadioni");
             });
 
             modelBuilder.Entity<Lokacija>(entity =>

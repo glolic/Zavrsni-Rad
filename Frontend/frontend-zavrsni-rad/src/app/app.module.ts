@@ -49,6 +49,11 @@ import { NatjecanjaGridComponent } from './features/natjecanja/natjecanja-grid/n
 import { NatjecanjaEditComponent } from './features/natjecanja/natjecanja-edit/natjecanja-edit.component';
 import { NatjecanjaAddComponent } from './features/natjecanja/natjecanja-add/natjecanja-add.component';
 import { NatjecanjaService } from './features/services/natjecanja-service';
+import { KluboviGridComponent } from './features/klub/klubovi-grid/klubovi-grid.component';
+import { KluboviAddComponent } from './features/klub/klubovi-add/klubovi-add.component';
+import { KluboviEditComponent } from './features/klub/klubovi-edit/klubovi-edit.component';
+import { KluboviService } from './features/services/klubovi-service';
+import { SlicePipe, CommonModule } from '@angular/common';
 
 
 @NgModule({
@@ -81,7 +86,10 @@ import { NatjecanjaService } from './features/services/natjecanja-service';
     StadioniAddComponent,
     NatjecanjaGridComponent,
     NatjecanjaEditComponent,
-    NatjecanjaAddComponent
+    NatjecanjaAddComponent,
+    KluboviGridComponent,
+    KluboviAddComponent,
+    KluboviEditComponent
   ],
   imports: [
     BrowserModule,
@@ -109,7 +117,8 @@ import { NatjecanjaService } from './features/services/natjecanja-service';
     MatSnackBarModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    CommonModule
   ],
   providers: [SpoloviService,
   HttpClient,
@@ -120,7 +129,8 @@ import { NatjecanjaService } from './features/services/natjecanja-service';
   PlacanjaPartneraService,
   PozicijeService,
   StadioniService,
-  NatjecanjaService
+  NatjecanjaService,
+  KluboviService
   ],
   bootstrap: [AppComponent]
 })

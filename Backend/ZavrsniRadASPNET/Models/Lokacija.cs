@@ -7,7 +7,6 @@ namespace ZavrsniRadASPNET.Models
     {
         public Lokacija()
         {
-            Klub = new HashSet<Klub>();
             Partneri = new HashSet<Partneri>();
         }
 
@@ -16,7 +15,6 @@ namespace ZavrsniRadASPNET.Models
         public int? DrzavaId { get; set; }
 
         public virtual Drzave Drzava { get; set; }
-        public virtual ICollection<Klub> Klub { get; set; }
         public virtual ICollection<Partneri> Partneri { get; set; }
     }
 }
