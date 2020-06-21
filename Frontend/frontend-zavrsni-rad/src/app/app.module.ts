@@ -63,6 +63,10 @@ import { OsobeGridComponent } from './features/osobe/osobe-grid/osobe-grid.compo
 import { OsobeAddComponent } from './features/osobe/osobe-add/osobe-add.component';
 import { OsobeEditComponent } from './features/osobe/osobe-edit/osobe-edit.component';
 import localeHR from '@angular/common/locales/hr';
+import { IgraciGridComponent } from './features/igraci/igraci-grid/igraci-grid.component';
+import { IgraciEditComponent } from './features/igraci/igraci-edit/igraci-edit.component';
+import { IgraciAddComponent } from './features/igraci/igraci-add/igraci-add.component';
+import { IgraciService } from './features/services/igraci-service';
 registerLocaleData(localeHR);
 
 
@@ -106,7 +110,10 @@ registerLocaleData(localeHR);
     MomcadiEditComponent,
     OsobeGridComponent,
     OsobeAddComponent,
-    OsobeEditComponent
+    OsobeEditComponent,
+    IgraciGridComponent,
+    IgraciEditComponent,
+    IgraciAddComponent
   ],
   imports: [
     BrowserModule,
@@ -152,6 +159,7 @@ registerLocaleData(localeHR);
   KluboviService,
   MomcadService,
   OsobeService,
+  IgraciService,
   MatDatepickerModule,
   MatNativeDateModule,
   {provide: MAT_DATE_LOCALE, useValue: 'hr-HR'}

@@ -36,6 +36,9 @@ import { MomcadiAddComponent } from './features/momcadi/momcadi-add/momcadi-add.
 import { OsobeGridComponent } from './features/osobe/osobe-grid/osobe-grid.component';
 import { OsobeEditComponent } from './features/osobe/osobe-edit/osobe-edit.component';
 import { OsobeAddComponent } from './features/osobe/osobe-add/osobe-add.component';
+import { IgraciGridComponent } from './features/igraci/igraci-grid/igraci-grid.component';
+import { IgraciEditComponent } from './features/igraci/igraci-edit/igraci-edit.component';
+import { IgraciAddComponent } from './features/igraci/igraci-add/igraci-add.component';
 
 
 const routes: Routes = [
@@ -75,6 +78,9 @@ const routes: Routes = [
   { path: 'osobe', component: OsobeGridComponent },
   { path: 'osobe-edit/:id', component: OsobeEditComponent },
   { path: 'osobe-add', component: OsobeAddComponent },
+  { path: 'igraci', component: IgraciGridComponent },
+  { path: 'igraci-edit/:id', component: IgraciEditComponent },
+  { path: 'igraci-add', component: IgraciAddComponent },
 ];
 
 @NgModule({

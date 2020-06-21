@@ -19,6 +19,11 @@ export class PozicijeService {
     return this.http.get<Array<Pozicija>>(url);
   }
 
+  public getAllPositions(): Observable<Array<Pozicija>> {
+    let url = 'https://localhost:44305/api/pozicije'
+    return this.http.get<Array<Pozicija>>(url);
+  }
+
   public getCount(): Observable<number> {
     let url = this.USER_API + "/count";
     return this.http.get<number>(url);

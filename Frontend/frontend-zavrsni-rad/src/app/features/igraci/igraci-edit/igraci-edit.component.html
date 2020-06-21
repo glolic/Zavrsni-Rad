@@ -1,0 +1,34 @@
+<div class="container mat-elevation-z8">
+    <form class="form-container">
+        
+        <mat-form-field class="example-full-width">
+            <input type="text" placeholder="Odaberite osobu" aria-label="Number" matInput [formControl]="person"
+                [matAutocomplete]="auto1">
+            <mat-autocomplete #auto1="matAutocomplete" [displayWith]="displayFn1">
+                <mat-option *ngFor="let person of personCollection" [value]="person">
+                    {{person.ime + person.prezime}}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+
+        <mat-form-field class="form-field-container">
+            <input type="text" matInput [formControl]="jerseyNumber" placeholder="Broj dresa" required>
+            <mat-error *ngIf="jerseyNumber.hasError('required')">
+                Broj dresa je obavezan
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <input type="text" placeholder="Odaberite poziciju" aria-label="Number" matInput [formControl]="position"
+                [matAutocomplete]="auto2">
+            <mat-autocomplete #auto2="matAutocomplete" [displayWith]="displayFn2">
+                <mat-option *ngFor="let position of positionCollection" [value]="position">
+                    {{position.naziv}}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+        <div class="row">
+            <button type="submit" mat-raised-button color="primary" class="submit" (click)="onSubmit()">Ažuriraj igrača</button>
+        </div>
+    </form>
+</div>

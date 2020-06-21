@@ -262,6 +262,7 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\DrzaveController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IgracController.cs" />
     <Compile Include="Controllers\KlubController.cs" />
     <Compile Include="Controllers\LokacijaController.cs" />
     <Compile Include="Controllers\MomcadController.cs" />
@@ -277,6 +278,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Mappers\DrzaveMapper.cs" />
+    <Compile Include="Mappers\IgracMapper.cs" />
     <Compile Include="Mappers\KlubMapper.cs" />
     <Compile Include="Mappers\LokacijaMapper.cs" />
     <Compile Include="Mappers\MomcadMapper.cs" />
@@ -309,6 +311,7 @@
     <Compile Include="Models\Utakmice.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceInterfaces\IDrzaveService.cs" />
+    <Compile Include="ServiceInterfaces\IIgracService.cs" />
     <Compile Include="ServiceInterfaces\IKlubService.cs" />
     <Compile Include="ServiceInterfaces\ILokacijaService.cs" />
     <Compile Include="ServiceInterfaces\IMomcadService.cs" />
@@ -321,6 +324,7 @@
     <Compile Include="ServiceInterfaces\IStadionService.cs" />
     <Compile Include="ServiceInterfaces\IUlogeService.cs" />
     <Compile Include="Services\DrzaveService.cs" />
+    <Compile Include="Services\IgracService.cs" />
     <Compile Include="Services\KlubService.cs" />
     <Compile Include="Services\LokacijaService.cs" />
     <Compile Include="Services\MomcadService.cs" />
@@ -333,6 +337,7 @@
     <Compile Include="Services\StadionService.cs" />
     <Compile Include="Services\UlogeService.cs" />
     <Compile Include="Views\DrzaveView.cs" />
+    <Compile Include="Views\IgracView.cs" />
     <Compile Include="Views\OsobaView.cs" />
     <Compile Include="Views\KlubView.cs" />
     <Compile Include="Views\LokacijaView.cs" />
