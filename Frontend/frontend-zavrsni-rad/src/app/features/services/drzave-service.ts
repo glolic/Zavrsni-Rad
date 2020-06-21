@@ -20,9 +20,7 @@ export class DrzaveService {
   }
 
   public getAllCountries() : Observable<Array<Drzava>>{
-
     let url = 'https://localhost:44305/api/drzave'
-
     return this.http.get<Array<Drzava>>(url);
   }
 

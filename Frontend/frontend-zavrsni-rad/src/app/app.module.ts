@@ -10,7 +10,7 @@ import { AgGridModule } from 'ag-grid-angular';
 import {
   MatMenuModule, MatSidenavModule, MatIconModule, MatToolbarModule,
   MatListModule, MatSelectModule, MatTableModule, MatPaginator,
-  MatPaginatorModule, MatSortModule, MatInputModule, MatButtonModule, MatCardModule, MatProgressSpinnerModule, MatDatepickerModule, MatCheckboxModule, MatAutocompleteModule, DateAdapter, MAT_DATE_FORMATS, MatSnackBarModule
+  MatPaginatorModule, MatSortModule, MatInputModule, MatButtonModule, MatCardModule, MatProgressSpinnerModule, MatDatepickerModule, MatCheckboxModule, MatAutocompleteModule, DateAdapter, MAT_DATE_FORMATS, MatSnackBarModule, MatNativeDateModule, MAT_DATE_LOCALE
 } from '@angular/material';
 import { HttpClient, HttpHandler, HttpClientModule } from '@angular/common/http';
 import { SpoloviService } from './features/services/spolovi-service';
@@ -53,7 +53,7 @@ import { KluboviGridComponent } from './features/klub/klubovi-grid/klubovi-grid.
 import { KluboviAddComponent } from './features/klub/klubovi-add/klubovi-add.component';
 import { KluboviEditComponent } from './features/klub/klubovi-edit/klubovi-edit.component';
 import { KluboviService } from './features/services/klubovi-service';
-import { SlicePipe, CommonModule } from '@angular/common';
+import { SlicePipe, CommonModule, DatePipe, registerLocaleData } from '@angular/common';
 import { MomcadService } from './features/services/momcad-service';
 import { MomcadiGridComponent } from './features/momcadi/momcadi-grid/momcadi-grid.component';
 import { MomcadiAddComponent } from './features/momcadi/momcadi-add/momcadi-add.component';
@@ -62,6 +62,9 @@ import { OsobeService } from './features/services/osobe-service';
 import { OsobeGridComponent } from './features/osobe/osobe-grid/osobe-grid.component';
 import { OsobeAddComponent } from './features/osobe/osobe-add/osobe-add.component';
 import { OsobeEditComponent } from './features/osobe/osobe-edit/osobe-edit.component';
+import localeHR from '@angular/common/locales/hr';
+registerLocaleData(localeHR);
+
 
 
 @NgModule({
@@ -132,7 +135,9 @@ import { OsobeEditComponent } from './features/osobe/osobe-edit/osobe-edit.compo
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    CommonModule
+    CommonModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [SpoloviService,
   HttpClient,
@@ -146,7 +151,10 @@ import { OsobeEditComponent } from './features/osobe/osobe-edit/osobe-edit.compo
   NatjecanjaService,
   KluboviService,
   MomcadService,
-  OsobeService
+  OsobeService,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  {provide: MAT_DATE_LOCALE, useValue: 'hr-HR'}
   ],
   bootstrap: [AppComponent]
 })

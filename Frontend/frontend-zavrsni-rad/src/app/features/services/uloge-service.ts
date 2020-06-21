@@ -19,6 +19,11 @@ export class UlogeService {
     return this.http.get<Array<Uloga>>(url);
   }
 
+  public getAllRoles(): Observable<Array<Uloga>> {
+    let url = 'https://localhost:44305/api/uloga'
+    return this.http.get<Array<Uloga>>(url);
+  }
+
   public getCount(): Observable<number> {
     let url = this.USER_API + "/count";
     return this.http.get<number>(url);

@@ -1,1 +1,65 @@
-<p>osobe-edit works!</p>
+<div class="container mat-elevation-z8">
+    <form class="form-container">
+        <mat-form-field class="form-field-container">
+            <input type="text" matInput [formControl]="name" placeholder="Ime" required>
+            <mat-error *ngIf="name.hasError('required')">
+                Ime je obavezno
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="form-field-container">
+            <input type="text" matInput [formControl]="lastName" placeholder="Prezime" required>
+            <mat-error *ngIf="lastName.hasError('required')">
+                Prezime je obavezno
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Datum rođenja</mat-label>
+            <input matInput [matDatepicker]="picker1" [formControl]="dateOfBirth">
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <input type="text" placeholder="Odaberite državu rođenja" aria-label="Number" matInput [formControl]="country"
+                [matAutocomplete]="auto1">
+            <mat-autocomplete #auto1="matAutocomplete" [displayWith]="displayFn1">
+                <mat-option *ngFor="let country of countryCollection" [value]="country">
+                    {{country.nazivDrzave}}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+
+        <mat-form-field class="form-field-container">
+            <input type="text" matInput [formControl]="oib" placeholder="OIB" required>
+            <mat-error *ngIf="oib.hasError('required')">
+                OIB je obavezan
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <input type="text" placeholder="Odaberite spol" aria-label="Number" matInput [formControl]="gender"
+                [matAutocomplete]="auto2">
+            <mat-autocomplete #auto2="matAutocomplete" [displayWith]="displayFn2">
+                <mat-option *ngFor="let gender of genderCollection" [value]="gender">
+                    {{gender.naziv}}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <input type="text" placeholder="Odaberite ulogu" aria-label="Number" matInput [formControl]="role"
+                [matAutocomplete]="auto3">
+            <mat-autocomplete #auto3="matAutocomplete" [displayWith]="displayFn3">
+                <mat-option *ngFor="let role of roleCollection" [value]="role">
+                    {{role.naziv}}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+
+        <div class="row">
+            <button type="submit" mat-raised-button color="primary" class="submit" (click)="onSubmit()">Ažuriraj osobu</button>
+        </div>
+    </form>
+</div>

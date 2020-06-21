@@ -18,6 +18,11 @@ export class SpoloviService {
         return this.http.get<Array<Spol>>(url);
     }
 
+    public getAllGenders() : Observable<Array<Spol>> {
+        let url = 'https://localhost:44305/api/spol'
+        return this.http.get<Array<Spol>>(url);
+    }
+
     public getCount(): Observable<number> {
         let url = this.USER_API + "/count";
         return this.http.get<number>(url);
