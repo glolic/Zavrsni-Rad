@@ -2,11 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { Osoba } from 'src/app/modeli/osoba-model';
 import { Pozicija } from 'src/app/modeli/pozicija-model';
 import { Igrac } from 'src/app/modeli/igrac-model';
+import { ImePrezime } from 'src/app/modeli/ime-prezime-model';
 import { OsobeService } from '../../services/osobe-service';
 import { PozicijeService } from '../../services/pozicije-service';
 import { IgraciService } from '../../services/igraci-service';
 import { FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ImePrezimeService } from '../../services/ime-prezime.service';
 
 @Component({
   selector: 'app-igraci-edit',
@@ -21,6 +23,7 @@ export class IgraciEditComponent implements OnInit {
 
   personCollection: Osoba[];
   positionCollection: Pozicija[];
+  nameLastNameCollection: ImePrezime[];
 
   igrac = new Igrac();
 
@@ -28,7 +31,8 @@ export class IgraciEditComponent implements OnInit {
     private router: Router,
     private osobaService: OsobeService,
     private pozicijaService: PozicijeService,
-    private igracService: IgraciService) { }
+    private igracService: IgraciService,
+    private imePrezimeService: ImePrezimeService) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -54,6 +58,12 @@ export class IgraciEditComponent implements OnInit {
         this.positionCollection = data;
       }
     );
+
+    this.imePrezimeService.getAllNamesAndLastNames().subscribe(
+      (data)=> {
+        this.nameLastNameCollection = data;
+      }
+    )
   }
   
   private setValues() {
@@ -68,7 +78,7 @@ export class IgraciEditComponent implements OnInit {
 
   onSubmit() {
     if (this.person.valid) {
-      let igrac = new Igrac(this.igrac.id, this.person.value, this.jerseyNumber.value, this.position.value);
+      let igrac = new Igrac(this.igrac.id, this.person.value, this.position.value, this.jerseyNumber.value);
 
       this.igracService.update(igrac).subscribe(
         response => { this.gotoList() }
@@ -80,7 +90,7 @@ export class IgraciEditComponent implements OnInit {
   }
 
   displayFn1(osoba: Osoba): string {
-    return osoba && osoba.ime ? osoba.ime : '';
+    return osoba && osoba.ime + ' ' + osoba.prezime ? osoba.ime + ' ' + osoba.prezime : '';
   }
 
   displayFn2(pozicija: Pozicija): string {

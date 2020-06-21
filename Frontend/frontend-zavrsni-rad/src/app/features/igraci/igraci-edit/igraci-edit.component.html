@@ -6,7 +6,7 @@
                 [matAutocomplete]="auto1">
             <mat-autocomplete #auto1="matAutocomplete" [displayWith]="displayFn1">
                 <mat-option *ngFor="let person of personCollection" [value]="person">
-                    {{person.ime + person.prezime}}
+                    {{person.ime + ' ' + person.prezime}}
                 </mat-option>
             </mat-autocomplete>
         </mat-form-field>
