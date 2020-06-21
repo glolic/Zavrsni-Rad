@@ -263,7 +263,6 @@
     <Compile Include="Controllers\DrzaveController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IgracController.cs" />
-    <Compile Include="Controllers\ImePrezimeController.cs" />
     <Compile Include="Controllers\KlubController.cs" />
     <Compile Include="Controllers\LokacijaController.cs" />
     <Compile Include="Controllers\MomcadController.cs" />
@@ -301,7 +300,6 @@
     <Compile Include="Models\Momcadi.cs" />
     <Compile Include="Models\Natjecanja.cs" />
     <Compile Include="Models\Osoba.cs" />
-    <Compile Include="Models\OsobaImePrezime.cs" />
     <Compile Include="Models\Osoblje.cs" />
     <Compile Include="Models\OsobljeMomcad.cs" />
     <Compile Include="Models\Partneri.cs" />
