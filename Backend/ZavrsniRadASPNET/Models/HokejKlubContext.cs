@@ -24,6 +24,7 @@ namespace ZavrsniRadASPNET.Models
         public virtual DbSet<Momcadi> Momcadi { get; set; }
         public virtual DbSet<Natjecanja> Natjecanja { get; set; }
         public virtual DbSet<Osoba> Osoba { get; set; }
+        public virtual DbSet<OsobaImePrezime> OsobaImePrezime { get; set; }
         public virtual DbSet<Osoblje> Osoblje { get; set; }
         public virtual DbSet<OsobljeMomcad> OsobljeMomcad { get; set; }
         public virtual DbSet<Partneri> Partneri { get; set; }
@@ -238,6 +239,15 @@ namespace ZavrsniRadASPNET.Models
                     .WithMany(p => p.Osoba)
                     .HasForeignKey(d => d.UlogaId)
                     .HasConstraintName("FK_Osoba_uloga");
+            });
+
+            modelBuilder.Entity<OsobaImePrezime>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("osobaImePrezime");
+
+                entity.Property(e => e.ImePrezime).HasMaxLength(101);
             });
 
             modelBuilder.Entity<Osoblje>(entity =>
