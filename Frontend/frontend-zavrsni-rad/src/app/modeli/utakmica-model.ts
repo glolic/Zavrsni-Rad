@@ -1,7 +1,7 @@
 import { Momcad } from './momcad-model';
 import { Natjecanje } from './natjecanje-model';
 
-export class Uloga {
+export class Utakmica {
     public id: number;
     public momcad1: Momcad;
     public momcad2: Momcad;

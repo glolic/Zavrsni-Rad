@@ -1,0 +1,61 @@
+<div class="container mat-elevation-z8">
+    <form class="form-container">
+
+        <mat-form-field>
+            <mat-label>Datum utakmice</mat-label>
+            <input matInput [matDatepicker]="picker1" [formControl]="dateOfGame">
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <input type="text" placeholder="Odaberite prvu momčad" aria-label="Number" matInput [formControl]="team1"
+                [matAutocomplete]="auto1">
+            <mat-autocomplete #auto1="matAutocomplete" [displayWith]="displayFn1">
+                <mat-option *ngFor="let team of teamCollection" [value]="team">
+                    {{team.naziv}}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <input type="text" placeholder="Odaberite drugu momčad" aria-label="Number" matInput [formControl]="team2"
+                [matAutocomplete]="auto2">
+            <mat-autocomplete #auto2="matAutocomplete" [displayWith]="displayFn2">
+                <mat-option *ngFor="let team of teamCollection" [value]="team">
+                    {{team.naziv}}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+
+        <mat-form-field class="form-field-container">
+            <input type="text" matInput [formControl]="score" placeholder="Rezultat" required>
+            <mat-error *ngIf="score.hasError('required')">
+                Rezultat je obavezan
+            </mat-error>
+        </mat-form-field>
+
+        
+        <mat-form-field class="example-full-width">
+            <input type="text" placeholder="Odaberite natjecanje" aria-label="Number" matInput [formControl]="competition"
+                [matAutocomplete]="auto3">
+            <mat-autocomplete #auto3="matAutocomplete" [displayWith]="displayFn3">
+                <mat-option *ngFor="let competition of competitionCollection" [value]="competition">
+                    {{competition.imeNatjecanja}}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+
+        <mat-form-field class="form-field-container">
+            <input type="text" matInput [formControl]="numOfVisitors" placeholder="Broj posjetitelja" required>
+            <mat-error *ngIf="numOfVisitors.hasError('required')">
+                Broj posjetitelja je obavezan
+            </mat-error>
+        </mat-form-field>
+
+
+        <div class="row">
+            <button type="submit" mat-raised-button color="primary" class="submit" (click)="onSubmit()">Ažuriraj utakmicu</button>
+        </div>
+    </form>
+</div>

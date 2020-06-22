@@ -20,9 +20,9 @@ export class NatjecanjaService {
       return this.http.get<Array<Natjecanje>>(url);
   }
 
-  public getAllLocations() : Observable<Array<Natjecanje>>{
+  public getAllCompetitions() : Observable<Array<Natjecanje>>{
 
-    let url = 'https://localhost:44305/api/lokacija'
+    let url = 'https://localhost:44305/api/natjecanja'
 
     return this.http.get<Array<Natjecanje>>(url);
   }

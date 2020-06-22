@@ -39,6 +39,9 @@ import { OsobeAddComponent } from './features/osobe/osobe-add/osobe-add.componen
 import { IgraciGridComponent } from './features/igraci/igraci-grid/igraci-grid.component';
 import { IgraciEditComponent } from './features/igraci/igraci-edit/igraci-edit.component';
 import { IgraciAddComponent } from './features/igraci/igraci-add/igraci-add.component';
+import { UtakmiceGridComponent } from './features/utakmice/utakmice-grid/utakmice-grid.component';
+import { UtakmiceEditComponent } from './features/utakmice/utakmice-edit/utakmice-edit.component';
+import { UtakmiceAddComponent } from './features/utakmice/utakmice-add/utakmice-add.component';
 
 
 const routes: Routes = [
@@ -81,6 +84,9 @@ const routes: Routes = [
   { path: 'igraci', component: IgraciGridComponent },
   { path: 'igraci-edit/:id', component: IgraciEditComponent },
   { path: 'igraci-add', component: IgraciAddComponent },
+  { path: 'utakmice', component: UtakmiceGridComponent },
+  { path: 'utakmice-edit/:id', component: UtakmiceEditComponent },
+  { path: 'utakmice-add', component: UtakmiceAddComponent },
 ];
 
 @NgModule({

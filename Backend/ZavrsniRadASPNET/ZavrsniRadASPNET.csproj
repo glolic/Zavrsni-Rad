@@ -274,6 +274,7 @@
     <Compile Include="Controllers\SpolController.cs" />
     <Compile Include="Controllers\StadionController.cs" />
     <Compile Include="Controllers\UlogaController.cs" />
+    <Compile Include="Controllers\UtakmiceController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -290,6 +291,7 @@
     <Compile Include="Mappers\SpolMapper.cs" />
     <Compile Include="Mappers\StadionMapper.cs" />
     <Compile Include="Mappers\UlogaMapper.cs" />
+    <Compile Include="Mappers\UtakmiceMapper.cs" />
     <Compile Include="Models\Drzave.cs" />
     <Compile Include="Models\HokejKlubContext.cs" />
     <Compile Include="Models\Igraci.cs" />
@@ -323,6 +325,7 @@
     <Compile Include="ServiceInterfaces\ISpolService.cs" />
     <Compile Include="ServiceInterfaces\IStadionService.cs" />
     <Compile Include="ServiceInterfaces\IUlogeService.cs" />
+    <Compile Include="ServiceInterfaces\IUtakmiceService.cs" />
     <Compile Include="Services\DrzaveService.cs" />
     <Compile Include="Services\IgracService.cs" />
     <Compile Include="Services\KlubService.cs" />
@@ -336,6 +339,7 @@
     <Compile Include="Services\SpolService.cs" />
     <Compile Include="Services\StadionService.cs" />
     <Compile Include="Services\UlogeService.cs" />
+    <Compile Include="Services\UtakmiceService.cs" />
     <Compile Include="Views\DrzaveView.cs" />
     <Compile Include="Views\IgracView.cs" />
     <Compile Include="Views\OsobaView.cs" />
@@ -349,6 +353,7 @@
     <Compile Include="Views\SpolView.cs" />
     <Compile Include="Views\StadionView.cs" />
     <Compile Include="Views\UlogaView.cs" />
+    <Compile Include="Views\UtakmiceView.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />

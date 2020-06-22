@@ -67,6 +67,10 @@ import { IgraciGridComponent } from './features/igraci/igraci-grid/igraci-grid.c
 import { IgraciEditComponent } from './features/igraci/igraci-edit/igraci-edit.component';
 import { IgraciAddComponent } from './features/igraci/igraci-add/igraci-add.component';
 import { IgraciService } from './features/services/igraci-service';
+import { UtakmiceGridComponent } from './features/utakmice/utakmice-grid/utakmice-grid.component';
+import { UtakmiceAddComponent } from './features/utakmice/utakmice-add/utakmice-add.component';
+import { UtakmiceEditComponent } from './features/utakmice/utakmice-edit/utakmice-edit.component';
+import { UtakmiceService } from './features/services/utakmice-service';
 registerLocaleData(localeHR);
 
 
@@ -113,7 +117,10 @@ registerLocaleData(localeHR);
     OsobeEditComponent,
     IgraciGridComponent,
     IgraciEditComponent,
-    IgraciAddComponent
+    IgraciAddComponent,
+    UtakmiceGridComponent,
+    UtakmiceAddComponent,
+    UtakmiceEditComponent
   ],
   imports: [
     BrowserModule,
@@ -160,6 +167,7 @@ registerLocaleData(localeHR);
   MomcadService,
   OsobeService,
   IgraciService,
+  UtakmiceService,
   MatDatepickerModule,
   MatNativeDateModule,
   {provide: MAT_DATE_LOCALE, useValue: 'hr-HR'}
