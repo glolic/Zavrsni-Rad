@@ -16,7 +16,6 @@ namespace ZavrsniRadASPNET.Models
         }
 
         public virtual DbSet<Drzave> Drzave { get; set; }
-        public virtual DbSet<IgracMomcad> IgracMomcad { get; set; }
         public virtual DbSet<Igraci> Igraci { get; set; }
         public virtual DbSet<IgraciPlacanja> IgraciPlacanja { get; set; }
         public virtual DbSet<Klub> Klub { get; set; }
@@ -24,8 +23,8 @@ namespace ZavrsniRadASPNET.Models
         public virtual DbSet<Momcadi> Momcadi { get; set; }
         public virtual DbSet<Natjecanja> Natjecanja { get; set; }
         public virtual DbSet<Osoba> Osoba { get; set; }
+        public virtual DbSet<OsobaImePrezime> OsobaImePrezime { get; set; }
         public virtual DbSet<Osoblje> Osoblje { get; set; }
-        public virtual DbSet<OsobljeMomcad> OsobljeMomcad { get; set; }
         public virtual DbSet<Partneri> Partneri { get; set; }
         public virtual DbSet<PlacanjaPartneri> PlacanjaPartneri { get; set; }
         public virtual DbSet<Pozicija> Pozicija { get; set; }
@@ -61,27 +60,6 @@ namespace ZavrsniRadASPNET.Models
                     .HasMaxLength(50);
             });
 
-            modelBuilder.Entity<IgracMomcad>(entity =>
-            {
-                entity.ToTable("igracMomcad");
-
-                entity.Property(e => e.Id).HasColumnName("ID");
-
-                entity.Property(e => e.IgracId).HasColumnName("igracID");
-
-                entity.Property(e => e.MomcadId).HasColumnName("momcadID");
-
-                entity.HasOne(d => d.Igrac)
-                    .WithMany(p => p.IgracMomcad)
-                    .HasForeignKey(d => d.IgracId)
-                    .HasConstraintName("FK_igracMomcad_igraci");
-
-                entity.HasOne(d => d.Momcad)
-                    .WithMany(p => p.IgracMomcad)
-                    .HasForeignKey(d => d.MomcadId)
-                    .HasConstraintName("FK_igracMomcad_momcadi");
-            });
-
             modelBuilder.Entity<Igraci>(entity =>
             {
                 entity.ToTable("igraci");
@@ -90,9 +68,16 @@ namespace ZavrsniRadASPNET.Models
 
                 entity.Property(e => e.BrojDresa).HasColumnName("brojDresa");
 
+                entity.Property(e => e.MomcadId).HasColumnName("momcadID");
+
                 entity.Property(e => e.OsobaId).HasColumnName("osobaID");
 
                 entity.Property(e => e.PozicijaId).HasColumnName("pozicijaID");
+
+                entity.HasOne(d => d.Momcad)
+                    .WithMany(p => p.Igraci)
+                    .HasForeignKey(d => d.MomcadId)
+                    .HasConstraintName("FK_igraci_momcadi");
 
                 entity.HasOne(d => d.Osoba)
                     .WithMany(p => p.Igraci)
@@ -240,39 +225,40 @@ namespace ZavrsniRadASPNET.Models
                     .HasConstraintName("FK_Osoba_uloga");
             });
 
+            modelBuilder.Entity<OsobaImePrezime>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("osobaImePrezime");
+
+                entity.Property(e => e.ImePrezime).HasMaxLength(101);
+            });
+
             modelBuilder.Entity<Osoblje>(entity =>
             {
                 entity.ToTable("osoblje");
 
                 entity.Property(e => e.Id).HasColumnName("ID");
 
+                entity.Property(e => e.DatumIstekaDozvole)
+                    .HasColumnName("datumIstekaDozvole")
+                    .HasColumnType("date");
+
+                entity.Property(e => e.DozvolaZaRad).HasColumnName("dozvolaZaRad");
+
+                entity.Property(e => e.MomcadId).HasColumnName("momcadID");
+
                 entity.Property(e => e.OsobaId).HasColumnName("osobaID");
+
+                entity.HasOne(d => d.Momcad)
+                    .WithMany(p => p.Osoblje)
+                    .HasForeignKey(d => d.MomcadId)
+                    .HasConstraintName("FK_osoblje_momcadi");
 
                 entity.HasOne(d => d.Osoba)
                     .WithMany(p => p.Osoblje)
                     .HasForeignKey(d => d.OsobaId)
                     .HasConstraintName("FK_osoblje_Osoba");
-            });
-
-            modelBuilder.Entity<OsobljeMomcad>(entity =>
-            {
-                entity.ToTable("osobljeMomcad");
-
-                entity.Property(e => e.Id).HasColumnName("ID");
-
-                entity.Property(e => e.MomcadId).HasColumnName("momcadID");
-
-                entity.Property(e => e.OsobljeId).HasColumnName("osobljeID");
-
-                entity.HasOne(d => d.Momcad)
-                    .WithMany(p => p.OsobljeMomcad)
-                    .HasForeignKey(d => d.MomcadId)
-                    .HasConstraintName("FK_osobljeMomcad_momcadi");
-
-                entity.HasOne(d => d.Osoblje)
-                    .WithMany(p => p.OsobljeMomcad)
-                    .HasForeignKey(d => d.OsobljeId)
-                    .HasConstraintName("FK_osobljeMomcad_osoblje");
             });
 
             modelBuilder.Entity<Partneri>(entity =>

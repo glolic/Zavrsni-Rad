@@ -7,8 +7,8 @@ namespace ZavrsniRadASPNET.Models
     {
         public Momcadi()
         {
-            IgracMomcad = new HashSet<IgracMomcad>();
-            OsobljeMomcad = new HashSet<OsobljeMomcad>();
+            Igraci = new HashSet<Igraci>();
+            Osoblje = new HashSet<Osoblje>();
             UtakmiceMomcad1 = new HashSet<Utakmice>();
             UtakmiceMomcad2 = new HashSet<Utakmice>();
         }
@@ -18,8 +18,8 @@ namespace ZavrsniRadASPNET.Models
         public int? KlubId { get; set; }
 
         public virtual Klub Klub { get; set; }
-        public virtual ICollection<IgracMomcad> IgracMomcad { get; set; }
-        public virtual ICollection<OsobljeMomcad> OsobljeMomcad { get; set; }
+        public virtual ICollection<Igraci> Igraci { get; set; }
+        public virtual ICollection<Osoblje> Osoblje { get; set; }
         public virtual ICollection<Utakmice> UtakmiceMomcad1 { get; set; }
         public virtual ICollection<Utakmice> UtakmiceMomcad2 { get; set; }
     }
