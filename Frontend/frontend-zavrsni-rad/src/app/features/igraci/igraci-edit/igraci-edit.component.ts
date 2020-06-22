@@ -7,6 +7,7 @@ import { PozicijeService } from '../../services/pozicije-service';
 import { IgraciService } from '../../services/igraci-service';
 import { FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material';
 
 @Component({
   selector: 'app-igraci-edit',
@@ -24,11 +25,15 @@ export class IgraciEditComponent implements OnInit {
 
   igrac = new Igrac();
 
+  horizontalPosition: MatSnackBarHorizontalPosition = 'end';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
+
   constructor(private route: ActivatedRoute,
     private router: Router,
     private osobaService: OsobeService,
     private pozicijaService: PozicijeService,
-    private igracService: IgraciService) { }
+    private igracService: IgraciService,
+    private _snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -71,7 +76,14 @@ export class IgraciEditComponent implements OnInit {
       let igrac = new Igrac(this.igrac.id, this.person.value, this.position.value, this.jerseyNumber.value);
 
       this.igracService.update(igrac).subscribe(
-        response => { this.gotoList() }
+        response => { 
+          this._snackBar.open('Igrač uspješno ažuriran', 'x', {
+            duration: 5000,
+            horizontalPosition: this.horizontalPosition,
+            verticalPosition: this.verticalPosition,
+          });
+          this.gotoList();
+        }
       );
     }
     else {

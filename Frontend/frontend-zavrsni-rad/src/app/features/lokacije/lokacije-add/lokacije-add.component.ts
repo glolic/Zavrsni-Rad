@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { LokacijeService } from '../../services/lokacije-service';
 import { DrzaveService } from '../../services/drzave-service';
 import { Drzava } from 'src/app/modeli/drzava-model';
+import { MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition, MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-lokacije-add',
@@ -18,10 +19,14 @@ export class LokacijeAddComponent implements OnInit {
 
   public drzave: Drzava[];
 
+  horizontalPosition: MatSnackBarHorizontalPosition = 'end';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
+
   constructor(private route: ActivatedRoute,
     private router: Router,
     private drzaveService: DrzaveService,
-    private lokacijaService: LokacijeService){}
+    private lokacijaService: LokacijeService,
+    private _snackBar: MatSnackBar){}
 
   ngOnInit() {
     
@@ -43,7 +48,14 @@ export class LokacijeAddComponent implements OnInit {
     if (this.address.valid) {
       let lokacija = new Lokacija(null,this.address.value, this.country.value);
       this.lokacijaService.add(lokacija).subscribe(
-        response => {this.gotoList()}
+        response => {
+          this._snackBar.open('Lokacija uspješno dodana', 'x', {
+            duration: 5000,
+            horizontalPosition: this.horizontalPosition,
+            verticalPosition: this.verticalPosition,
+          });
+          this.gotoList()
+        }
       );
     }
     else {

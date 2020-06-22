@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { PartneriService } from '../../services/partner-service';
 import { Lokacija } from 'src/app/modeli/lokacija-model';
 import { LokacijeService } from '../../services/lokacije-service';
+import { MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition, MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-partneri-edit',
@@ -20,10 +21,14 @@ export class PartneriEditComponent implements OnInit {
 
   partner = new Partner();
 
+  horizontalPosition: MatSnackBarHorizontalPosition = 'end';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
+
   constructor(private route: ActivatedRoute,
     private router: Router,
     private partnerService: PartneriService,
-    private lokacijaService: LokacijeService) { }
+    private lokacijaService: LokacijeService,
+    private _snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -58,7 +63,14 @@ export class PartneriEditComponent implements OnInit {
       let lokacija = new Partner(this.partner.id, this.partnerName.value, this.location.value);
 
       this.partnerService.update(lokacija).subscribe(
-        response => { this.gotoList() }
+        response => { 
+          this._snackBar.open('Partner uspješno ažuriran', 'x', {
+            duration: 5000,
+            horizontalPosition: this.horizontalPosition,
+            verticalPosition: this.verticalPosition,
+          });
+          this.gotoList() 
+        }
       );
     }
     else {

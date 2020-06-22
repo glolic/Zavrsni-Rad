@@ -5,6 +5,7 @@ import { FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LokacijeService } from '../../services/lokacije-service';
 import { Partner } from 'src/app/modeli/partneri-model';
+import { MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition, MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-partneri-add',
@@ -18,10 +19,15 @@ export class PartneriAddComponent implements OnInit {
 
   public lokacija: Lokacija[];
 
+  horizontalPosition: MatSnackBarHorizontalPosition = 'end';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
+
+
   constructor(private route: ActivatedRoute,
     private router: Router,
     private partnerService: PartneriService,
-    private lokacijaService: LokacijeService){}
+    private lokacijaService: LokacijeService,
+    private _snackBar: MatSnackBar){}
 
   ngOnInit() {
     
@@ -43,7 +49,14 @@ export class PartneriAddComponent implements OnInit {
     if (this.partnerName.valid) {
       let partner = new Partner(null,this.partnerName.value, this.location.value);
       this.partnerService.add(partner).subscribe(
-        response => {this.gotoList()}
+        response => {
+          this._snackBar.open('Partner uspješno dodan', 'x', {
+            duration: 5000,
+            horizontalPosition: this.horizontalPosition,
+            verticalPosition: this.verticalPosition,
+          });
+          this.gotoList()
+        }
       );
     }
     else {

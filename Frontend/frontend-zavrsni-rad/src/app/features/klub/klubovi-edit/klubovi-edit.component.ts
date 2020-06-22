@@ -7,6 +7,7 @@ import { Lokacija } from 'src/app/modeli/lokacija-model';
 import { FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LokacijeService } from '../../services/lokacije-service';
+import { MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition, MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-klubovi-edit',
@@ -25,11 +26,15 @@ export class KluboviEditComponent implements OnInit {
 
   klub = new Klub();
 
+  horizontalPosition: MatSnackBarHorizontalPosition = 'end';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
+
   constructor(private route: ActivatedRoute,
     private router: Router,
     private stadionService: StadioniService,
     private lokacijaService: LokacijeService,
-    private klubService: KluboviService) { }
+    private klubService: KluboviService,
+    private _snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -74,7 +79,14 @@ export class KluboviEditComponent implements OnInit {
       let klub = new Klub(this.klub.id, this.name.value, this.establishmentYear.value, this.clubResidence.value, this.stadium.value);
 
       this.klubService.update(klub).subscribe(
-        response => { this.gotoList() }
+        response => { 
+          this.gotoList()
+          this._snackBar.open('Klub uspješno ažuriran', 'x', {
+            duration: 5000,
+            horizontalPosition: this.horizontalPosition,
+            verticalPosition: this.verticalPosition,
+          });
+         }
       );
     }
     else {

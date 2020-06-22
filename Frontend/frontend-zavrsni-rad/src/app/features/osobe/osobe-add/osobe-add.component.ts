@@ -9,6 +9,7 @@ import { OsobeService } from '../../services/osobe-service';
 import { Osoba } from 'src/app/modeli/osoba-model';
 import { FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition, MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-osobe-add',
@@ -29,12 +30,16 @@ export class OsobeAddComponent implements OnInit {
   genderCollection: Spol[];
   roleCollection: Uloga[];
 
+  horizontalPosition: MatSnackBarHorizontalPosition = 'end';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
+
   constructor(private route: ActivatedRoute,
     private router: Router,
     private drzaveService: DrzaveService,
     private spoloviService: SpoloviService,
     private ulogeService: UlogeService,
-    private osobeService: OsobeService) { }
+    private osobeService: OsobeService,
+    private _snackBar: MatSnackBar) { }
 
   ngOnInit() {
     
@@ -74,7 +79,14 @@ export class OsobeAddComponent implements OnInit {
       let osoba = new Osoba(null, this.name.value, this.lastName.value, formattedDate, this.oib.value,
         this.gender.value, this.country.value, this.role.value);
       this.osobeService.add(osoba).subscribe(
-        response => {this.gotoList()}
+        response => {
+          this._snackBar.open('Osoba uspješno dodana', 'x', {
+            duration: 5000,
+            horizontalPosition: this.horizontalPosition,
+            verticalPosition: this.verticalPosition,
+          });
+          this.gotoList()
+        }
       );
     }
     else {

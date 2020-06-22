@@ -3,6 +3,7 @@ import { FormControl } from '@angular/forms';
 import { SpoloviService } from '../../services/spolovi-service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Spol } from 'src/app/modeli/spol-model';
+import { MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition, MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-spolovi-add',
@@ -13,9 +14,13 @@ export class SpoloviAddComponent implements OnInit {
 
   name = new FormControl('');
 
+  horizontalPosition: MatSnackBarHorizontalPosition = 'end';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
+
   constructor(private route: ActivatedRoute,
     private router: Router,
-    private spolService: SpoloviService){}
+    private spolService: SpoloviService,
+    private _snackBar: MatSnackBar){}
 
   ngOnInit() {
     
@@ -29,7 +34,14 @@ export class SpoloviAddComponent implements OnInit {
     if (this.name.valid) {
       let spol = new Spol(null,this.name.value);
       this.spolService.add(spol).subscribe(
-        response => {this.gotoList()}
+        response => {
+          this._snackBar.open('Spol uspješno dodan', 'x', {
+            duration: 5000,
+            horizontalPosition: this.horizontalPosition,
+            verticalPosition: this.verticalPosition,
+          });
+          this.gotoList()
+        }
       );
     }
     else {

@@ -3,6 +3,7 @@ import { Drzava } from 'src/app/modeli/drzava-model';
 import { DrzaveService } from '../../services/drzave-service';
 import { FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition, MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-drzave-edit',
@@ -14,9 +15,14 @@ export class DrzaveEditComponent implements OnInit {
   name = new FormControl('');
   code = new FormControl('');
   drzava = new Drzava();
+
+  horizontalPosition: MatSnackBarHorizontalPosition = 'end';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
+
   constructor(private route: ActivatedRoute,
     private router: Router,
-    private drzavaService: DrzaveService) { }
+    private drzavaService: DrzaveService,
+    private _snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -40,7 +46,14 @@ export class DrzaveEditComponent implements OnInit {
       let drzava = new Drzava(this.drzava.id, this.name.value, this.code.value);
 
       this.drzavaService.update(drzava).subscribe(
-        response => { this.gotoList() }
+        response => { 
+          this._snackBar.open('Država uspješno ažurirana', 'x', {
+            duration: 5000,
+            horizontalPosition: this.horizontalPosition,
+            verticalPosition: this.verticalPosition,
+          });
+          this.gotoList() 
+        }
       );
     }
     else {

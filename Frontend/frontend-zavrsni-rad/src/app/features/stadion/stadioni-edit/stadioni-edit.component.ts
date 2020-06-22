@@ -5,6 +5,7 @@ import { Stadion } from 'src/app/modeli/stadion-model';
 import { StadioniService } from '../../services/stadioni-service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LokacijeService } from '../../services/lokacije-service';
+import { MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition, MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-stadioni-edit',
@@ -20,11 +21,15 @@ export class StadioniEditComponent implements OnInit {
   lokacijaCollection: Lokacija[];
 
   stadion = new Stadion();
+
+  horizontalPosition: MatSnackBarHorizontalPosition = 'end';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
   
   constructor(private route: ActivatedRoute,
     private router: Router,
     private lokacijaService: LokacijeService,
-    private stadionService: StadioniService) { }
+    private stadionService: StadioniService,
+    private _snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -61,7 +66,14 @@ export class StadioniEditComponent implements OnInit {
       let stadion = new Stadion(this.stadion.id, this.name.value, this.capacity.value, this.location.value);
 
       this.stadionService.update(stadion).subscribe(
-        response => { this.gotoList() }
+        response => { 
+          this._snackBar.open('Stadion uspješno ažuriran', 'x', {
+            duration: 5000,
+            horizontalPosition: this.horizontalPosition,
+            verticalPosition: this.verticalPosition,
+          });
+          this.gotoList()
+         }
       );
     }
     else {

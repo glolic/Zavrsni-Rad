@@ -5,6 +5,7 @@ import { FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { StadioniService } from '../../services/stadioni-service';
 import { LokacijeService } from '../../services/lokacije-service';
+import { MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition, MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-stadioni-add',
@@ -19,10 +20,14 @@ export class StadioniAddComponent implements OnInit {
 
   public lokacijaCollection: Lokacija[];
 
+  horizontalPosition: MatSnackBarHorizontalPosition = 'end';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
+
   constructor(private route: ActivatedRoute,
     private router: Router,
     private stadionService: StadioniService,
-    private lokacijaService: LokacijeService){}
+    private lokacijaService: LokacijeService,
+    private _snackBar: MatSnackBar){}
 
   ngOnInit() {
     
@@ -44,7 +49,14 @@ export class StadioniAddComponent implements OnInit {
     if (this.name.valid) {
       let stadion = new Stadion(null,this.name.value, this.capacity.value, this.location.value);
       this.stadionService.add(stadion).subscribe(
-        response => {this.gotoList()}
+        response => {
+          this._snackBar.open('Stadion uspješno dodan', 'x', {
+            duration: 5000,
+            horizontalPosition: this.horizontalPosition,
+            verticalPosition: this.verticalPosition,
+          });
+          this.gotoList()
+        }
       );
     }
     else {

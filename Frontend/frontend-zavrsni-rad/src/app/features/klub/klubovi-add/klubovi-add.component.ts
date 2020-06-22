@@ -7,6 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { StadioniService } from '../../services/stadioni-service';
 import { LokacijeService } from '../../services/lokacije-service';
 import { KluboviService } from '../../services/klubovi-service';
+import { MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition, MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-klubovi-add',
@@ -23,11 +24,15 @@ export class KluboviAddComponent implements OnInit {
   lokacijaCollection: Lokacija[];
   stadiumCollection: Stadion[];
 
+  horizontalPosition: MatSnackBarHorizontalPosition = 'end';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
+
   constructor(private route: ActivatedRoute,
     private router: Router,
     private stadionService: StadioniService,
     private lokacijaService: LokacijeService,
-    private klubService: KluboviService) { }
+    private klubService: KluboviService,
+    private _snackBar: MatSnackBar) { }
 
   ngOnInit() {
     
@@ -55,7 +60,14 @@ export class KluboviAddComponent implements OnInit {
     if (this.name.valid) {
       let klub = new Klub(null, this.name.value, this.establishmentYear.value, this.clubResidence.value, this.stadium.value);
       this.klubService.add(klub).subscribe(
-        response => {this.gotoList()}
+        response => {
+          this._snackBar.open('Klub uspješno dodan', 'x', {
+            duration: 5000,
+            horizontalPosition: this.horizontalPosition,
+            verticalPosition: this.verticalPosition,
+          });
+          this.gotoList()
+        }
       );
     }
     else {

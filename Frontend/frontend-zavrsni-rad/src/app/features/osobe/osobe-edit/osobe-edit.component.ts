@@ -11,6 +11,7 @@ import { FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DateAdapter } from '@angular/material/core';
 import { formatDate } from '@angular/common';
+import { MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition, MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-osobe-edit',
@@ -33,13 +34,17 @@ export class OsobeEditComponent implements OnInit {
 
   osoba = new Osoba();
 
+  horizontalPosition: MatSnackBarHorizontalPosition = 'end';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
+
   constructor(private route: ActivatedRoute,
     private router: Router,
     private drzaveService: DrzaveService,
     private spoloviService: SpoloviService,
     private ulogeService: UlogeService,
     private osobeService: OsobeService,
-    private _adapter: DateAdapter<any>
+    private _adapter: DateAdapter<any>,
+    private _snackBar: MatSnackBar
     ) { }
 
   ngOnInit() {
@@ -104,7 +109,14 @@ export class OsobeEditComponent implements OnInit {
         this.gender.value, this.country.value, this.role.value);
       
       this.osobeService.update(osoba).subscribe(
-        response => { this.gotoList() }
+        response => { 
+          this._snackBar.open('Osoba uspješno ažurirana', 'x', {
+            duration: 5000,
+            horizontalPosition: this.horizontalPosition,
+            verticalPosition: this.verticalPosition,
+          });
+          this.gotoList() 
+        }
       );
     }
     else {
