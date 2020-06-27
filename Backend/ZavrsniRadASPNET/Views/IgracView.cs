@@ -11,5 +11,6 @@ namespace ZavrsniRadASPNET.Views
         public int brojDresa { get; set; }
         public PozicijaView Pozicija { get; set; }
         public OsobaView Osoba { get; set; }
+        public MomcadView Momcad { get; set; }
     }
 }

@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 })
 export class PlacanjaPartneraGridComponent implements OnInit {
 
-  displayedColumns: string[] = ['razlogPlacanja', 'iznos', 'partner', 'placeno', 'actions'];
+  displayedColumns: string[] = ['razlogPlacanja', 'iznos', 'partner', 'datumPlacanja', 'actions'];
   resultsLength;
   svaPlacanjaPartnera: PlacanjaPartnera[];
   pageEvent: PageEvent;

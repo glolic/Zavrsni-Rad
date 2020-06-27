@@ -18,7 +18,7 @@ export class OsobljeEditComponent implements OnInit {
 
   person = new FormControl('');
   dateOfLicense = new FormControl('');
-  hasLicense = new FormControl('');
+  dateOfLicenseStart = new FormControl('');
   team = new FormControl('');
 
   teamCollection: Momcad[];
@@ -46,7 +46,7 @@ export class OsobljeEditComponent implements OnInit {
         this.osoblje.osoba = data.osoba;
         this.osoblje.momcad = data.momcad;
         this.osoblje.datumIstekaDozvole = data.datumIstekaDozvole;
-        this.osoblje.dozvolaZaRad = data.dozvolaZaRad;
+        this.osoblje.datumIzdajeDozvole = data.datumIzdajeDozvole;
         this.setValues();
       })
     })
@@ -71,7 +71,7 @@ export class OsobljeEditComponent implements OnInit {
     this.person.setValue(this.osoblje.osoba);
     this.team.setValue(this.osoblje.momcad);
     this.dateOfLicense.setValue(this.osoblje.datumIstekaDozvole);
-    this.hasLicense.setValue(this.osoblje.dozvolaZaRad);
+    this.dateOfLicenseStart.setValue(this.osoblje.datumIzdajeDozvole);
   }
 
   gotoList() {
@@ -79,13 +79,18 @@ export class OsobljeEditComponent implements OnInit {
   }
 
   onSubmit() {
-    var formattedDate = new Date(this.dateOfLicense.value);
-    var timeZoneDifference = (formattedDate.getTimezoneOffset() / 60) * -1; 
-    formattedDate.setTime(formattedDate.getTime() + (timeZoneDifference * 60) * 60 * 1000);
-    formattedDate.toISOString();
+    var formattedDate1 = new Date(this.dateOfLicenseStart.value);
+    var timeZoneDifference = (formattedDate1.getTimezoneOffset() / 60) * -1; 
+    formattedDate1.setTime(formattedDate1.getTime() + (timeZoneDifference * 60) * 60 * 1000);
+    formattedDate1.toISOString();
+
+    var formattedDate2 = new Date(this.dateOfLicense.value);
+    var timeZoneDifference = (formattedDate2.getTimezoneOffset() / 60) * -1; 
+    formattedDate2.setTime(formattedDate2.getTime() + (timeZoneDifference * 60) * 60 * 1000);
+    formattedDate2.toISOString();
     
     if (this.person.valid) {
-      let osoblje = new Osoblje(this.osoblje.id, this.person.value, this.team.value, this.hasLicense.value, formattedDate);
+      let osoblje = new Osoblje(this.osoblje.id, this.person.value, this.team.value, formattedDate1, formattedDate2);
       
       this.osobljeService.update(osoblje).subscribe(
         response => { 

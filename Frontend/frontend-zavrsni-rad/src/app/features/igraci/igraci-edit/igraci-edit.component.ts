@@ -8,6 +8,8 @@ import { IgraciService } from '../../services/igraci-service';
 import { FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material';
+import { Momcad } from 'src/app/modeli/momcad-model';
+import { MomcadService } from '../../services/momcad-service';
 
 @Component({
   selector: 'app-igraci-edit',
@@ -19,9 +21,11 @@ export class IgraciEditComponent implements OnInit {
   person = new FormControl('');
   jerseyNumber = new FormControl('');
   position = new FormControl('');
+  team = new FormControl('');
 
   personCollection: Osoba[];
   positionCollection: Pozicija[];
+  teamCollection: Momcad[];
 
   igrac = new Igrac();
 
@@ -33,6 +37,7 @@ export class IgraciEditComponent implements OnInit {
     private osobaService: OsobeService,
     private pozicijaService: PozicijeService,
     private igracService: IgraciService,
+    private momcadService: MomcadService,
     private _snackBar: MatSnackBar) { }
 
   ngOnInit() {
@@ -42,6 +47,7 @@ export class IgraciEditComponent implements OnInit {
         this.igrac.osoba = data.osoba;
         this.igrac.brojDresa = data.brojDresa;
         this.igrac.pozicija = data.pozicija;
+        this.igrac.momcad = data.momcad;
         this.setValues();
       })
     })
@@ -59,12 +65,19 @@ export class IgraciEditComponent implements OnInit {
         this.positionCollection = data;
       }
     );
+
+    this.momcadService.getAllTeams().subscribe(
+      (data) => {
+        this.teamCollection = data;
+      }
+    );
   }
   
   private setValues() {
     this.person.setValue(this.igrac.osoba);
     this.jerseyNumber.setValue(this.igrac.brojDresa);
     this.position.setValue(this.igrac.pozicija);
+    this.team.setValue(this.igrac.momcad);
   }
 
   gotoList() {
@@ -73,7 +86,7 @@ export class IgraciEditComponent implements OnInit {
 
   onSubmit() {
     if (this.person.valid) {
-      let igrac = new Igrac(this.igrac.id, this.person.value, this.position.value, this.jerseyNumber.value);
+      let igrac = new Igrac(this.igrac.id, this.person.value, this.position.value, this.jerseyNumber.value, this.team.value);
 
       this.igracService.update(igrac).subscribe(
         response => { 
@@ -97,6 +110,10 @@ export class IgraciEditComponent implements OnInit {
 
   displayFn2(pozicija: Pozicija): string {
     return pozicija && pozicija.naziv ? pozicija.naziv : '';
+  }
+
+  displayFn3(momcad: Momcad): string {
+    return momcad && momcad.naziv ? momcad.naziv : '';
   }
 
 }

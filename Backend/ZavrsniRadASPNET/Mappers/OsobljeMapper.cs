@@ -14,8 +14,8 @@ namespace ZavrsniRadASPNET.Mappers
             var result = new OsobljeView
             {
                 Id = osoblje.Id,
-                datumIstekaDozvole = osoblje.DatumIstekaDozvole,
-                dozvolaZaRad = osoblje.DozvolaZaRad,
+                DatumIstekaDozvole = osoblje.DatumIstekaDozvole,
+                DatumIzdajeDozvole = osoblje.DatumIzdajeDozvole,
                 Osoba = new OsobaView()
                 {
                     Id = osoblje.Osoba.Id,
@@ -71,8 +71,8 @@ namespace ZavrsniRadASPNET.Mappers
             var result = new Osoblje()
             {
                 Id = view.Id,
-                DatumIstekaDozvole = view.datumIstekaDozvole,
-                DozvolaZaRad = view.dozvolaZaRad,
+                DatumIstekaDozvole = view.DatumIstekaDozvole,
+                DatumIzdajeDozvole = view.DatumIzdajeDozvole,
                 MomcadId = view.Momcad.Id,
                 OsobaId = view.Osoba.Id
             };

@@ -16,7 +16,7 @@ namespace ZavrsniRadASPNET.Mappers
                 Id = placanjaPartneri.Id,
                 Iznos = placanjaPartneri.Iznos,
                 RazlogPlacanja = placanjaPartneri.RazlogPlacanja,
-                Placeno = placanjaPartneri.Placeno,
+                DatumPlacanja = placanjaPartneri.DatumPlacanja,
                 Partner = new PartnerView()
                 {
                     Id = placanjaPartneri.Partner.Id,
@@ -45,7 +45,7 @@ namespace ZavrsniRadASPNET.Mappers
                 Id = view.Id,
                 Iznos = view.Iznos,
                 RazlogPlacanja = view.RazlogPlacanja,
-                Placeno = view.Placeno,
+                DatumPlacanja = view.DatumPlacanja,
                 PartnerId = view.Partner.Id
             };
             return result;

@@ -45,7 +45,7 @@ namespace ZavrsniRadASPNET.Services
                 case "datumIstekaDozvole":
                     return sortOrder.Equals("asc") ? _context.Osoblje.OrderBy(v => v.DatumIstekaDozvole) : _context.Osoblje.OrderByDescending(v => v.DatumIstekaDozvole);
                 case "dozvolaZaRad":
-                    return sortOrder.Equals("asc") ? _context.Osoblje.OrderBy(v => v.DozvolaZaRad) : _context.Osoblje.OrderByDescending(v => v.DozvolaZaRad);
+                    return sortOrder.Equals("asc") ? _context.Osoblje.OrderBy(v => v.DatumIzdajeDozvole) : _context.Osoblje.OrderByDescending(v => v.DatumIzdajeDozvole);
                 case "momcad":
                     return sortOrder.Equals("asc") ? _context.Osoblje.OrderBy(v => v.Momcad.Naziv) : _context.Osoblje.OrderByDescending(v => v.Momcad.Naziv);
                 case "osoba":
@@ -101,7 +101,7 @@ namespace ZavrsniRadASPNET.Services
             var osoblje1 = _context.Osoblje.SingleOrDefault(v => v.Id == osoblje.Id);
             id = osoblje.Id;
             osoblje1.DatumIstekaDozvole = osoblje.DatumIstekaDozvole;
-            osoblje1.DozvolaZaRad = osoblje.DozvolaZaRad;
+            osoblje1.DatumIzdajeDozvole = osoblje.DatumIzdajeDozvole;
             osoblje1.MomcadId = osoblje.MomcadId;
             osoblje1.OsobaId = osoblje.OsobaId;
 

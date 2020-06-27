@@ -21,11 +21,11 @@
                 </mat-option>
             </mat-autocomplete>
         </mat-form-field>
-        <mat-form-field class="form-field-container">
-            <input type="text" matInput [formControl]="isPaid" placeholder="Plaćeno?" required>
-            <mat-error *ngIf="amount.hasError('required')">
-                Morate naznačiti je li plaćeno.
-            </mat-error>
+        <mat-form-field class="example-full-width">
+            <mat-label>Datum plaćanja</mat-label>
+            <input matInput [matDatepicker]="picker1" [formControl]="dateOfPayment">
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
         </mat-form-field>
         <div class="row">
             <button type="submit" mat-raised-button color="primary" class="submit" (click)="onSubmit()">Dodaj

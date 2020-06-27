@@ -48,6 +48,8 @@ namespace ZavrsniRadASPNET.Services
                     return sortOrder.Equals("asc") ? _context.Igraci.OrderBy(v => v.Osoba.Ime) : _context.Igraci.OrderByDescending(v => v.Osoba.Ime);
                 case "pozicija":
                     return sortOrder.Equals("asc") ? _context.Igraci.OrderBy(v => v.Pozicija.Naziv) : _context.Igraci.OrderByDescending(v => v.Pozicija.Naziv);
+                case "momcad":
+                    return sortOrder.Equals("asc") ? _context.Igraci.OrderBy(v => v.Momcad.Naziv) : _context.Igraci.OrderByDescending(v => v.Momcad.Naziv);
                 default:
                     return _context.Igraci.OrderBy(v => v.Osoba.Ime);
             }
@@ -101,6 +103,7 @@ namespace ZavrsniRadASPNET.Services
             igrac1.BrojDresa = igrac.BrojDresa;
             igrac1.OsobaId = igrac.OsobaId;
             igrac1.PozicijaId = igrac.PozicijaId;
+            igrac1.MomcadId = igrac.MomcadId;
 
             try
             {

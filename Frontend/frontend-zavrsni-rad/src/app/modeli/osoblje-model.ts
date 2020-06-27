@@ -5,14 +5,14 @@ export class Osoblje {
     public id: number;
     public osoba: Osoba;
     public momcad: Momcad;
-    public dozvolaZaRad: boolean;
+    public datumIzdajeDozvole: Date;
     public datumIstekaDozvole: Date;
 
-    constructor(id?:number, osoba?:Osoba, momcad?:Momcad, dozvolaZaRad?:boolean, datumIstekaDozvole?:Date){
+    constructor(id?:number, osoba?:Osoba, momcad?:Momcad, datumIzdajeDozvole?:Date, datumIstekaDozvole?:Date){
         this.id=id;
         this.osoba=osoba;
         this.momcad = momcad;
-        this.dozvolaZaRad = dozvolaZaRad;
+        this.datumIzdajeDozvole = datumIzdajeDozvole;
         this.datumIstekaDozvole = datumIstekaDozvole;
     }
 }

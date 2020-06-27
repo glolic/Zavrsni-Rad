@@ -43,6 +43,16 @@ namespace ZavrsniRadASPNET.Mappers
                         Id = igrac.Osoba.Uloga.Id,
                         Naziv = igrac.Osoba.Uloga.Naziv
                     }
+                },
+                Momcad = new MomcadView()
+                {
+                    Id = igrac.Momcad.Id,
+                    Naziv = igrac.Momcad.Naziv,
+                    Klub = new KlubView()
+                    {
+                        Id = igrac.Momcad.Klub.Id,
+                        Naziv = igrac.Momcad.Klub.Naziv
+                    }
                 }
             };
             return result;
@@ -67,7 +77,8 @@ namespace ZavrsniRadASPNET.Mappers
                 Id = view.Id,
                 BrojDresa = view.brojDresa,
                 PozicijaId = view.Pozicija.Id,
-                OsobaId = view.Osoba.Id
+                OsobaId = view.Osoba.Id,
+                MomcadId = view.Momcad.Id
             };
             return result;
         }

@@ -11,6 +11,16 @@
             </mat-autocomplete>
         </mat-form-field>
 
+        <mat-form-field class="example-full-width">
+            <input type="text" placeholder="Odaberite momčad" aria-label="Number" matInput [formControl]="team"
+                [matAutocomplete]="auto3">
+            <mat-autocomplete #auto3="matAutocomplete" [displayWith]="displayFn3">
+                <mat-option *ngFor="let team of teamCollection" [value]="team">
+                    {{team.naziv}}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+
         <mat-form-field class="form-field-container">
             <input type="text" matInput [formControl]="jerseyNumber" placeholder="Broj dresa" required>
             <mat-error *ngIf="jerseyNumber.hasError('required')">

@@ -21,10 +21,11 @@
             </mat-autocomplete>
         </mat-form-field>
 
-        <mat-form-field floatPlaceholder="always" class="mat-form-field--no-underline">
-            <!-- the matInput with display:none makes the magic. It's ugly, I've warned you -->
-            <input matInput placeholder="Input" style="display: none" [formControl]="hasLicense" >
-            <mat-checkbox (click)="enableDate($event)">Check me!</mat-checkbox>
+        <mat-form-field class="example-full-width">
+            <mat-label>Datum izdaje dozvole za rad</mat-label>
+            <input matInput [matDatepicker]="picker2" [formControl]="dateOfLicenseStart" [readonly]="isReadOnly">
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
         </mat-form-field>
 
         <mat-form-field class="example-full-width">

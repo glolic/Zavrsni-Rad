@@ -10,7 +10,7 @@ namespace ZavrsniRadASPNET.Views
         public int Id { get; set; }
         public string RazlogPlacanja { get; set; }
         public double Iznos { get; set; }
-        public bool Placeno { get; set; }
+        public DateTime? DatumPlacanja { get; set; }
         public PartnerView Partner { get; set; }
     }
 }

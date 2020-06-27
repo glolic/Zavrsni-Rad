@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class OsobljeGridComponent implements OnInit {
 
-  displayedColumns: string[] = [ 'osoba', 'momcad', 'dozvolaZaRad', 'datumIstekaDozvole', 'actions'];
+  displayedColumns: string[] = [ 'osoba', 'momcad', 'datumIzdajeDozvole', 'datumIstekaDozvole', 'actions'];
   resultsLength;
   osoblje: Osoblje[];
   pageEvent: PageEvent;

@@ -18,7 +18,7 @@ export class OsobljeAddComponent implements OnInit {
 
   person = new FormControl('');
   dateOfLicense = new FormControl('');
-  hasLicense = new FormControl('');
+  dateOfLicenseStart = new FormControl('');
   team = new FormControl('');
 
   teamCollection: Momcad[];
@@ -57,13 +57,18 @@ export class OsobljeAddComponent implements OnInit {
   }
 
   onSubmit(){
-    var formattedDate = new Date(this.dateOfLicense.value);
-    var timeZoneDifference = (formattedDate.getTimezoneOffset() / 60) * -1; 
-    formattedDate.setTime(formattedDate.getTime() + (timeZoneDifference * 60) * 60 * 1000);
-    formattedDate.toISOString();
+    var formattedDate1 = new Date(this.dateOfLicenseStart.value);
+    var timeZoneDifference = (formattedDate1.getTimezoneOffset() / 60) * -1; 
+    formattedDate1.setTime(formattedDate1.getTime() + (timeZoneDifference * 60) * 60 * 1000);
+    formattedDate1.toISOString();
+
+    var formattedDate2 = new Date(this.dateOfLicense.value);
+    var timeZoneDifference = (formattedDate2.getTimezoneOffset() / 60) * -1; 
+    formattedDate2.setTime(formattedDate2.getTime() + (timeZoneDifference * 60) * 60 * 1000);
+    formattedDate2.toISOString();
     
     if (this.person.valid) {
-      let osoblje = new Osoblje(null,  this.person.value, this.team.value, this.hasLicense.value, formattedDate);
+      let osoblje = new Osoblje(null,  this.person.value, this.team.value, formattedDate1, formattedDate2);
       this.osobljeService.add(osoblje).subscribe(
         response => {
           this._snackBar.open('Osoblje uspješno dodano', 'x', {
@@ -78,11 +83,6 @@ export class OsobljeAddComponent implements OnInit {
     else {
       this.person.markAsTouched();
     }
-  }
-
-  public enableDate($event)
-  {
-    console.log($event);
   }
 
   displayFn1(osoba: Osoba): string {

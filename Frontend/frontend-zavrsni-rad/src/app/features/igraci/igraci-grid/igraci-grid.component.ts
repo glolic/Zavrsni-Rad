@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class IgraciGridComponent implements OnInit {
 
-  displayedColumns: string[] = [ 'osoba', 'pozicija', 'brojDresa', 'actions'];
+  displayedColumns: string[] = [ 'osoba', 'momcad', 'pozicija', 'brojDresa', 'actions'];
   resultsLength;
   igraci: Igrac[];
   pageEvent: PageEvent;

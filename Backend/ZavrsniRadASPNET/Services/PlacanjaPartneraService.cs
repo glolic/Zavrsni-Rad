@@ -46,8 +46,8 @@ namespace ZavrsniRadASPNET.Services
                     return sortOrder.Equals("asc") ? _context.PlacanjaPartneri.OrderBy(v => v.Iznos) : _context.PlacanjaPartneri.OrderByDescending(v => v.Iznos);
                 case "partner":
                     return sortOrder.Equals("asc") ? _context.PlacanjaPartneri.OrderBy(v => v.Partner.NazivPartnera) : _context.PlacanjaPartneri.OrderByDescending(v => v.Partner.NazivPartnera);
-                case "placeno":
-                    return sortOrder.Equals("asc") ? _context.PlacanjaPartneri.OrderBy(v => v.Placeno) : _context.PlacanjaPartneri.OrderByDescending(v => v.Placeno);
+                case "datumPlacanja":
+                    return sortOrder.Equals("asc") ? _context.PlacanjaPartneri.OrderBy(v => v.DatumPlacanja) : _context.PlacanjaPartneri.OrderByDescending(v => v.DatumPlacanja);
                 default:
                     return _context.PlacanjaPartneri.OrderBy(v => v.Iznos);
             }
@@ -101,7 +101,7 @@ namespace ZavrsniRadASPNET.Services
             placanjaPartneri1.Iznos= placanjaPartneri.Iznos;
             placanjaPartneri1.PartnerId = placanjaPartneri.PartnerId;
             placanjaPartneri1.RazlogPlacanja = placanjaPartneri.RazlogPlacanja;
-            placanjaPartneri1.Placeno = placanjaPartneri.Placeno;
+            placanjaPartneri1.DatumPlacanja = placanjaPartneri.DatumPlacanja;
 
             try
             {

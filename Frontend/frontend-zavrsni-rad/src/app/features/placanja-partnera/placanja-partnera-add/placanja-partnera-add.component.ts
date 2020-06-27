@@ -17,7 +17,7 @@ export class PlacanjaPartneraAddComponent implements OnInit {
   reason = new FormControl('');
   amount = new FormControl('');
   partner = new FormControl('');
-  isPaid = new FormControl('');
+  dateOfPayment = new FormControl('');
 
   public partneri: Partner[];
 
@@ -47,11 +47,17 @@ export class PlacanjaPartneraAddComponent implements OnInit {
   }
 
   onSubmit(){
+
+    var formattedDate1 = new Date(this.dateOfPayment.value);
+    var timeZoneDifference = (formattedDate1.getTimezoneOffset() / 60) * -1; 
+    formattedDate1.setTime(formattedDate1.getTime() + (timeZoneDifference * 60) * 60 * 1000);
+    formattedDate1.toISOString();
+
     if (this.reason.valid && this.amount.valid) {
-      let placanjaPartnera = new PlacanjaPartnera(null, this.reason.value, this.amount.value, this.partner.value, this.isPaid.value);
+      let placanjaPartnera = new PlacanjaPartnera(null, this.reason.value, this.amount.value, this.partner.value, formattedDate1);
       this.placanjaPartneraService.add(placanjaPartnera).subscribe(
         response => {
-          this._snackBar.open('Plaćanje uspješno dodan', 'x', {
+          this._snackBar.open('Plaćanje uspješno dodano', 'x', {
             duration: 5000,
             horizontalPosition: this.horizontalPosition,
             verticalPosition: this.verticalPosition,

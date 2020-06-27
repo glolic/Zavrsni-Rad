@@ -291,8 +291,8 @@ namespace ZavrsniRadASPNET.Models
 
                 entity.Property(e => e.RazlogPlacanja)
                     .HasColumnName("razlogPlacanja")
-                    .HasMaxLength(10)
-                    .IsFixedLength();
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
 
                 entity.HasOne(d => d.Partner)
                     .WithMany(p => p.PlacanjaPartneri)
