@@ -1,8 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Osoba } from 'src/app/modeli/osoba-model';
-import { DrzaveService } from '../../services/drzave-service';
-import { SpoloviService } from '../../services/spolovi-service';
-import { UlogeService } from '../../services/uloge-service';
 import { OsobeService } from '../../services/osobe-service';
 import { PageEvent, MatPaginator, MatSort } from '@angular/material';
 import { HttpClient } from '@angular/common/http';

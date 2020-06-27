@@ -268,6 +268,7 @@
     <Compile Include="Controllers\MomcadController.cs" />
     <Compile Include="Controllers\NatjecanjaController.cs" />
     <Compile Include="Controllers\OsobaController.cs" />
+    <Compile Include="Controllers\OsobljeController.cs" />
     <Compile Include="Controllers\PartnerController.cs" />
     <Compile Include="Controllers\PlacanjaPartneriController.cs" />
     <Compile Include="Controllers\PozicijeController.cs" />
@@ -285,6 +286,7 @@
     <Compile Include="Mappers\MomcadMapper.cs" />
     <Compile Include="Mappers\NatjecanjaMapper.cs" />
     <Compile Include="Mappers\OsobaMapper.cs" />
+    <Compile Include="Mappers\OsobljeMapper.cs" />
     <Compile Include="Mappers\PartnerMapper.cs" />
     <Compile Include="Mappers\PlacanjaPartneriMapper.cs" />
     <Compile Include="Mappers\PozicijaMapper.cs" />
@@ -296,15 +298,12 @@
     <Compile Include="Models\HokejKlubContext.cs" />
     <Compile Include="Models\Igraci.cs" />
     <Compile Include="Models\IgraciPlacanja.cs" />
-    <Compile Include="Models\IgracMomcad.cs" />
     <Compile Include="Models\Klub.cs" />
     <Compile Include="Models\Lokacija.cs" />
     <Compile Include="Models\Momcadi.cs" />
     <Compile Include="Models\Natjecanja.cs" />
     <Compile Include="Models\Osoba.cs" />
-    <Compile Include="Models\OsobaImePrezime.cs" />
     <Compile Include="Models\Osoblje.cs" />
-    <Compile Include="Models\OsobljeMomcad.cs" />
     <Compile Include="Models\Partneri.cs" />
     <Compile Include="Models\PlacanjaPartneri.cs" />
     <Compile Include="Models\Pozicija.cs" />
@@ -320,6 +319,7 @@
     <Compile Include="ServiceInterfaces\IMomcadService.cs" />
     <Compile Include="ServiceInterfaces\INatjecanjaService.cs" />
     <Compile Include="ServiceInterfaces\IOsobaService.cs" />
+    <Compile Include="ServiceInterfaces\IOsobljeService.cs" />
     <Compile Include="ServiceInterfaces\IPartnerService.cs" />
     <Compile Include="ServiceInterfaces\IPlacanjaPartneraService.cs" />
     <Compile Include="ServiceInterfaces\IPozicijaService.cs" />
@@ -334,6 +334,7 @@
     <Compile Include="Services\MomcadService.cs" />
     <Compile Include="Services\NatjecanjaService.cs" />
     <Compile Include="Services\OsobaService.cs" />
+    <Compile Include="Services\OsobljeService.cs" />
     <Compile Include="Services\PartnerService.cs" />
     <Compile Include="Services\PlacanjaPartneraService.cs" />
     <Compile Include="Services\PozicijaService.cs" />
@@ -348,6 +349,7 @@
     <Compile Include="Views\LokacijaView.cs" />
     <Compile Include="Views\MomcadView.cs" />
     <Compile Include="Views\NatjecanjaView.cs" />
+    <Compile Include="Views\OsobljeView.cs" />
     <Compile Include="Views\PartnerView.cs" />
     <Compile Include="Views\PlacanjaPartneraView.cs" />
     <Compile Include="Views\PozicijaView.cs" />

@@ -1,0 +1,41 @@
+<div class="container mat-elevation-z8">
+    <form class="form-container">
+
+        <mat-form-field class="example-full-width">
+            <input type="text" placeholder="Odaberite osobu" aria-label="Number" matInput [formControl]="person"
+                [matAutocomplete]="auto1">
+            <mat-autocomplete #auto1="matAutocomplete" [displayWith]="displayFn1">
+                <mat-option *ngFor="let person of personCollection" [value]="person">
+                    {{person.ime + ' ' + person.prezime}}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <input type="text" placeholder="Odaberite momčad" aria-label="Number" matInput [formControl]="team"
+                [matAutocomplete]="auto2">
+            <mat-autocomplete #auto2="matAutocomplete" [displayWith]="displayFn2">
+                <mat-option *ngFor="let team of teamCollection" [value]="team">
+                    {{team.naziv}}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+
+        <mat-form-field floatPlaceholder="always" class="mat-form-field--no-underline">
+            <!-- the matInput with display:none makes the magic. It's ugly, I've warned you -->
+            <input matInput placeholder="Input" style="display: none" [formControl]="hasLicense" >
+            <mat-checkbox (click)="enableDate($event)">Check me!</mat-checkbox>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Datum isteka dozvole za rad</mat-label>
+            <input matInput [matDatepicker]="picker1" [formControl]="dateOfLicense" [readonly]="isReadOnly">
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+
+        <div class="row">
+            <button type="submit" mat-raised-button color="primary" class="submit" (click)="onSubmit()">Dodaj osoblje</button>
+        </div>
+    </form>
+</div>

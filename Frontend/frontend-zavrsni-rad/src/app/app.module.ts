@@ -10,7 +10,7 @@ import { AgGridModule } from 'ag-grid-angular';
 import {
   MatMenuModule, MatSidenavModule, MatIconModule, MatToolbarModule,
   MatListModule, MatSelectModule, MatTableModule, MatPaginator,
-  MatPaginatorModule, MatSortModule, MatInputModule, MatButtonModule, MatCardModule, MatProgressSpinnerModule, MatDatepickerModule, MatCheckboxModule, MatAutocompleteModule, DateAdapter, MAT_DATE_FORMATS, MatSnackBarModule, MatNativeDateModule, MAT_DATE_LOCALE
+  MatPaginatorModule, MatSortModule, MatInputModule, MatButtonModule, MatCardModule, MatProgressSpinnerModule, MatDatepickerModule, MatCheckboxModule, MatAutocompleteModule, DateAdapter, MAT_DATE_FORMATS, MatSnackBarModule, MatNativeDateModule, MAT_DATE_LOCALE, MAT_CHECKBOX_CLICK_ACTION, MatFormField
 } from '@angular/material';
 import { HttpClient, HttpHandler, HttpClientModule } from '@angular/common/http';
 import { SpoloviService } from './features/services/spolovi-service';
@@ -71,6 +71,10 @@ import { UtakmiceGridComponent } from './features/utakmice/utakmice-grid/utakmic
 import { UtakmiceAddComponent } from './features/utakmice/utakmice-add/utakmice-add.component';
 import { UtakmiceEditComponent } from './features/utakmice/utakmice-edit/utakmice-edit.component';
 import { UtakmiceService } from './features/services/utakmice-service';
+import { OsobljeGridComponent } from './features/osoblje/osoblje-grid/osoblje-grid.component';
+import { OsobljeAddComponent } from './features/osoblje/osoblje-add/osoblje-add.component';
+import { OsobljeEditComponent } from './features/osoblje/osoblje-edit/osoblje-edit.component';
+import { OsobljeService } from './features/services/osoblje-service';
 registerLocaleData(localeHR);
 
 
@@ -120,7 +124,10 @@ registerLocaleData(localeHR);
     IgraciAddComponent,
     UtakmiceGridComponent,
     UtakmiceAddComponent,
-    UtakmiceEditComponent
+    UtakmiceEditComponent,
+    OsobljeGridComponent,
+    OsobljeAddComponent,
+    OsobljeEditComponent
   ],
   imports: [
     BrowserModule,
@@ -151,7 +158,7 @@ registerLocaleData(localeHR);
     FormsModule,
     CommonModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
   ],
   providers: [SpoloviService,
   HttpClient,
@@ -168,8 +175,10 @@ registerLocaleData(localeHR);
   OsobeService,
   IgraciService,
   UtakmiceService,
+  OsobljeService,
   MatDatepickerModule,
   MatNativeDateModule,
+  {provide: MAT_CHECKBOX_CLICK_ACTION, useValue: 'check'},
   {provide: MAT_DATE_LOCALE, useValue: 'hr-HR'}
   ],
   bootstrap: [AppComponent]
