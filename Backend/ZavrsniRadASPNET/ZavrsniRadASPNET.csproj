@@ -343,6 +343,7 @@
     <Compile Include="Services\UlogeService.cs" />
     <Compile Include="Services\UtakmiceService.cs" />
     <Compile Include="Views\DrzaveView.cs" />
+    <Compile Include="Views\IgraciPlacanjaView.cs" />
     <Compile Include="Views\IgracView.cs" />
     <Compile Include="Views\OsobaView.cs" />
     <Compile Include="Views\KlubView.cs" />

@@ -8,7 +8,7 @@ namespace ZavrsniRadASPNET.Models
         public int Id { get; set; }
         public int? OsobaId { get; set; }
         public int? MomcadId { get; set; }
-        public bool DozvolaZaRad { get; set; }
+        public DateTime DatumIzdajeDozvole { get; set; }
         public DateTime DatumIstekaDozvole { get; set; }
 
         public virtual Momcadi Momcad { get; set; }

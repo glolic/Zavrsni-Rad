@@ -95,14 +95,18 @@ namespace ZavrsniRadASPNET.Models
 
                 entity.Property(e => e.Id).HasColumnName("ID");
 
+                entity.Property(e => e.DatumPlacanja)
+                    .HasColumnName("datumPlacanja")
+                    .HasColumnType("date");
+
                 entity.Property(e => e.IgracId).HasColumnName("igracID");
 
                 entity.Property(e => e.Iznos).HasColumnName("iznos");
 
                 entity.Property(e => e.RazlogPlacanja)
                     .HasColumnName("razlogPlacanja")
-                    .HasMaxLength(10)
-                    .IsFixedLength();
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
 
                 entity.HasOne(d => d.Igrac)
                     .WithMany(p => p.IgraciPlacanja)
@@ -234,7 +238,9 @@ namespace ZavrsniRadASPNET.Models
                     .HasColumnName("datumIstekaDozvole")
                     .HasColumnType("date");
 
-                entity.Property(e => e.DozvolaZaRad).HasColumnName("dozvolaZaRad");
+                entity.Property(e => e.DatumIzdajeDozvole)
+                    .HasColumnName("datumIzdajeDozvole")
+                    .HasColumnType("date");
 
                 entity.Property(e => e.MomcadId).HasColumnName("momcadID");
 
@@ -275,11 +281,13 @@ namespace ZavrsniRadASPNET.Models
 
                 entity.Property(e => e.Id).HasColumnName("ID");
 
+                entity.Property(e => e.DatumPlacanja)
+                    .HasColumnName("datumPlacanja")
+                    .HasColumnType("date");
+
                 entity.Property(e => e.Iznos).HasColumnName("iznos");
 
                 entity.Property(e => e.PartnerId).HasColumnName("partnerID");
-
-                entity.Property(e => e.Placeno).HasColumnName("placeno");
 
                 entity.Property(e => e.RazlogPlacanja)
                     .HasColumnName("razlogPlacanja")

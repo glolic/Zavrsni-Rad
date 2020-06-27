@@ -9,7 +9,7 @@ namespace ZavrsniRadASPNET.Models
         public int? PartnerId { get; set; }
         public string RazlogPlacanja { get; set; }
         public double Iznos { get; set; }
-        public bool Placeno { get; set; }
+        public DateTime? DatumPlacanja { get; set; }
 
         public virtual Partneri Partner { get; set; }
     }

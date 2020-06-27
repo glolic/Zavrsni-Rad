@@ -9,6 +9,7 @@ namespace ZavrsniRadASPNET.Models
         public int? IgracId { get; set; }
         public string RazlogPlacanja { get; set; }
         public double? Iznos { get; set; }
+        public DateTime? DatumPlacanja { get; set; }
 
         public virtual Igraci Igrac { get; set; }
     }
