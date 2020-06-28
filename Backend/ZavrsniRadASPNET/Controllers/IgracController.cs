@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Windows.Forms.VisualStyles;
 using ZavrsniRadASPNET.Mappers;
 using ZavrsniRadASPNET.Models;
 using ZavrsniRadASPNET.ServiceInterfaces;
@@ -26,9 +28,10 @@ namespace ZavrsniRadASPNET.Controllers
 
         // GET: api/igrac
         [HttpGet]
-        public IQueryable<Igraci> GetIgracs()
+        [Route("api/igrac/allFromTeam")]
+        public IQueryable<Igraci> GetIgracs(int id)
         {
-            return db.Igraci;
+            return db.Igraci.Where(x=>x.MomcadId == id);
         }
 
 

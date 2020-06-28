@@ -371,15 +371,15 @@ namespace ZavrsniRadASPNET.Models
                     .HasMaxLength(10)
                     .IsFixedLength();
 
-                entity.HasOne(d => d.Momcad1)
-                    .WithMany(p => p.UtakmiceMomcad1)
-                    .HasForeignKey(d => d.Momcad1Id)
-                    .HasConstraintName("FK_utakmice_momcadi");
+                //entity.HasOne(d => d.Momcad1)
+                //    .WithMany(p => p.UtakmiceMomcad1)
+                //    .HasForeignKey(d => d.Momcad1Id)
+                //    .HasConstraintName("FK_utakmice_momcadi");
 
-                entity.HasOne(d => d.Momcad2)
-                    .WithMany(p => p.UtakmiceMomcad2)
-                    .HasForeignKey(d => d.Momcad2Id)
-                    .HasConstraintName("FK_utakmice_momcadi1");
+                //entity.HasOne(d => d.Momcad2)
+                //    .WithMany(p => p.UtakmiceMomcad2)
+                //    .HasForeignKey(d => d.Momcad2Id)
+                //    .HasConstraintName("FK_utakmice_momcadi1");
 
                 entity.HasOne(d => d.Natjecanje)
                     .WithMany(p => p.Utakmice)

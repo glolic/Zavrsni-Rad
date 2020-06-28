@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Security.Cryptography.X509Certificates;
 using System.Web.Http;
 using ZavrsniRadASPNET.Mappers;
 using ZavrsniRadASPNET.Models;
@@ -30,7 +32,6 @@ namespace ZavrsniRadASPNET.Controllers
         {
             return db.Momcadi;
         }
-
 
         [HttpGet]
         public IHttpActionResult Get(string pageIndex, string pageSize, string sortColumn, string sortOrder)

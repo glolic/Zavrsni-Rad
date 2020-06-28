@@ -31,6 +31,13 @@ namespace ZavrsniRadASPNET.Controllers
         {
             return db.Osoblje;
         }
+        
+        [HttpGet]
+        [Route("api/osoblje/allFromTeam")]
+        public IQueryable<Osoblje> GetOsobljeFromTeam(int id)
+        {
+            return db.Osoblje.Where(x=>x.MomcadId == id);
+        }
 
 
         [HttpGet]

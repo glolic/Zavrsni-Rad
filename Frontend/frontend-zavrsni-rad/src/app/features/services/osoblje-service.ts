@@ -18,8 +18,13 @@ export class OsobljeService {
         return this.http.get<Array<Osoblje>>(url);
     }
 
-    public getAllGenders() : Observable<Array<Osoblje>> {
+    public getAllStaff() : Observable<Array<Osoblje>> {
         let url = 'https://localhost:44305/api/osoblje'
+        return this.http.get<Array<Osoblje>>(url);
+    }
+
+    public getAllStaffFromTeam(id: number): Observable<Array<Osoblje>> {
+        let url = 'https://localhost:44305/api/osoblje/allFromTeam?id=' + id;
         return this.http.get<Array<Osoblje>>(url);
     }
 

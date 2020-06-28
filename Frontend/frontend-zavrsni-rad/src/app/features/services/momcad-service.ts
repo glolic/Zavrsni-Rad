@@ -21,7 +21,7 @@ export class MomcadService {
 
   public getAllTeams() : Observable<Array<Momcad>>{
 
-    let url = 'https://localhost:44305/api/momcad'
+    let url = 'https://localhost:44305/api/momcad';
 
     return this.http.get<Array<Momcad>>(url);
   }

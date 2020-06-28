@@ -6,6 +6,10 @@ import { Momcad } from 'src/app/modeli/momcad-model';
 import { FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition, MatSnackBar } from '@angular/material';
+import { Igrac } from 'src/app/modeli/igrac-model';
+import { IgraciService } from '../../services/igraci-service';
+import { OsobljeService } from '../../services/osoblje-service';
+import { Osoblje } from 'src/app/modeli/osoblje-model';
 
 @Component({
   selector: 'app-momcadi-edit',
@@ -16,18 +20,23 @@ export class MomcadiEditComponent implements OnInit {
 
   name = new FormControl('');
   club = new FormControl('');
+  position = new FormControl('below');
 
   klubCollection: Klub[];
+  igraciMomcadi: Igrac[];
+  osobljeMomcadi: Osoblje[];
 
   momcad = new Momcad();
 
   horizontalPosition: MatSnackBarHorizontalPosition = 'end';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
-  
+
   constructor(private route: ActivatedRoute,
     private router: Router,
     private momcadService: MomcadService,
+    private igracService: IgraciService,
     private klubService: KluboviService,
+    private osobljeService: OsobljeService,
     private _snackBar: MatSnackBar) { }
 
   ngOnInit() {
@@ -38,9 +47,19 @@ export class MomcadiEditComponent implements OnInit {
         this.momcad.klub = data.klub;
         this.setValues();
       })
+      this.igracService.getAllPlayersFromTeam(params["id"]).subscribe(
+        (data) => {
+          this.igraciMomcadi = data;
+        }
+      )
+      this.osobljeService.getAllStaffFromTeam(params["id"]).subscribe(
+        (data) => {
+          this.osobljeMomcadi = data;
+        }
+      )
     })
   }
-  
+
   ngAfterContentInit() {
     this.klubService.getAllClubs().subscribe(
       (data) => {
@@ -48,7 +67,7 @@ export class MomcadiEditComponent implements OnInit {
       }
     );
   }
-  
+
   private setValues() {
     this.name.setValue(this.momcad.naziv);
     this.club.setValue(this.momcad.klub);
@@ -63,14 +82,14 @@ export class MomcadiEditComponent implements OnInit {
       let momcad = new Momcad(this.momcad.id, this.name.value, this.club.value);
 
       this.momcadService.update(momcad).subscribe(
-        response => { 
+        response => {
           this._snackBar.open('Momčad uspješno ažurirana', 'x', {
             duration: 5000,
             horizontalPosition: this.horizontalPosition,
             verticalPosition: this.verticalPosition,
           });
           this.gotoList()
-         }
+        }
       );
     }
     else {

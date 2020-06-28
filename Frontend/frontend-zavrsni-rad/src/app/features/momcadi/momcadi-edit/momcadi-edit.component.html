@@ -16,7 +16,33 @@
             </mat-autocomplete>
         </mat-form-field>
         <div class="row">
-            <button type="submit" mat-raised-button color="primary" class="submit" (click)="onSubmit()">Ažuriraj momčad</button>
+            <button type="submit" mat-raised-button color="primary" class="submit" (click)="onSubmit()">Ažuriraj
+                momčad</button>
         </div>
     </form>
+    <div class="row">
+        <div class="col-md-6 igraci">
+            <h2>Igrači ove momčadi</h2>
+            <mat-list role="list">
+                <mat-list-item role="listitem" *ngFor="let igrac of igraciMomcadi">
+                    <a routerLink="/igraci-edit/{{igrac.id}}">
+                        <button mat-button color="primary">{{igrac.osoba.ime + ' ' + igrac.osoba.prezime}}
+                        </button>
+                    </a>
+                </mat-list-item>
+            </mat-list>
+        </div>
+        <div class="col-md-6 osoblje">
+            <h2>Osoblje ove momčadi</h2>
+            <mat-list role="list">
+                <mat-list-item role="listitem" *ngFor="let osoblje of osobljeMomcadi">
+                    <a routerLink="/osoblje-edit/{{osoblje.id}}">
+                        <button mat-button color="primary">
+                            {{osoblje.osoba.ime + ' ' + osoblje.osoba.prezime}}
+                        </button>
+                    </a>
+                </mat-list-item>
+            </mat-list>
+        </div>
+    </div>
 </div>
